@@ -15,26 +15,27 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Montserrat:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        obsidian: '#08080a',
-                        surface: '#111115',
-                        gold: {
-                            300: '#e5c158',
+                        darkBg: '#0b0908',
+                        cardBg: '#161311',
+                        goldGlow: '#d4af37',
+                        bronze: {
+                            300: '#edd09b',
                             400: '#d4af37',
-                            500: '#b59223',
-                            600: '#8a6c12',
+                            500: '#b8922c',
+                            600: '#8c6c1d',
                         }
                     },
                     fontFamily: {
                         sans: ['Vazirmatn', 'sans-serif'],
                         en: ['Montserrat', 'sans-serif'],
-                        title: ['Cinzel', 'serif']
+                        serifHeader: ['Cormorant Garamond', 'serif']
                     }
                 }
             }
@@ -43,37 +44,54 @@
 
     <style>
         body {
-            background-color: #08080a;
-            color: #d1d1d6;
+            /* Vibrant Cinematic Gradient Background instead of plain flat black */
+            background: radial-gradient(circle at 50% 0%, #1f140c 0%, #0b0908 60%, #050404 100%);
+            color: #f7f3ed;
             font-family: 'Vazirmatn', sans-serif;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
         }
 
-        .gold-border-glow {
-            border: 1px solid rgba(212, 175, 55, 0.18);
-            transition: all 0.3s ease;
+        /* Ambient Glowing Orbs */
+        .glow-orb {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, rgba(11, 9, 8, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
         }
-        .gold-border-glow:hover {
-            border-color: rgba(212, 175, 55, 0.45);
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.08);
+
+        /* Rich Glassmorphism Cards with Gradient Borders */
+        .luxury-card {
+            background: linear-gradient(145deg, rgba(28, 24, 21, 0.9), rgba(14, 12, 10, 0.95));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(212, 175, 55, 0.15);
+            backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .luxury-card:hover {
+            border-color: rgba(212, 175, 55, 0.8);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.35);
+            transform: translateY(-4px);
         }
 
         .gold-button {
-            background: linear-gradient(135deg, #e5c158 0%, #d4af37 50%, #b59223 100%);
-            color: #08080a;
-            font-weight: 600;
+            background: linear-gradient(135deg, #edd09b 0%, #d4af37 50%, #8c6c1d 100%);
+            color: #0b0908;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
             transition: all 0.3s ease;
         }
         .gold-button:hover {
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-            transform: translateY(-1px);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+            transform: translateY(-2px);
         }
 
         .page-view {
             display: none;
             opacity: 0;
-            transform: translateY(6px);
+            transform: translateY(8px);
             transition: opacity 0.35s ease, transform 0.35s ease;
         }
         .page-view.active {
@@ -86,97 +104,91 @@
             width: 5px;
         }
         ::-webkit-scrollbar-track {
-            background: #08080a;
+            background: #0b0908;
         }
         ::-webkit-scrollbar-thumb {
-            background: #1f1f26;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
             background: #d4af37;
+            border-radius: 3px;
         }
     </style>
 </head>
-<body class="selection:bg-gold-400 selection:text-black min-h-screen flex flex-col justify-between">
+<body class="selection:bg-bronze-400 selection:text-black min-h-screen flex flex-col justify-between relative">
+
+    <!-- Ambient Glow Orbs -->
+    <div class="glow-orb top-10 left-1/2 -translate-x-1/2"></div>
+    <div class="glow-orb top-1/2 -right-20"></div>
 
     <!-- HEADER / NAVIGATION -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-obsidian/90 backdrop-blur-xl border-b border-white/5">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-darkBg/95 backdrop-blur-xl border-b border-gold-500/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             
             <!-- Logo -->
             <a href="#home" onclick="showPage('home', event)" class="flex items-center gap-2.5">
-                <i class="fa-solid fa-crown text-gold-400 text-xs"></i>
-                <span class="font-title text-lg font-semibold tracking-[0.2em] text-white">KOMSAY</span>
+                <i class="fa-solid fa-crown text-bronze-400 text-xs"></i>
+                <span class="font-serifHeader text-lg font-bold tracking-[0.2em] text-white">KOMSAY</span>
             </a>
 
             <!-- Navigation Links -->
-            <nav class="hidden lg:flex items-center gap-8 font-en text-[11px] font-medium tracking-[0.2em] text-gray-400">
-                <a href="#home" data-page="home" onclick="showPage('home', event)" class="nav-link hover:text-gold-400 transition-colors py-1 text-gold-400" data-i18n="nav_home">HOME</a>
-                <a href="#biography" data-page="biography" onclick="showPage('biography', event)" class="nav-link hover:text-gold-400 transition-colors py-1" data-i18n="nav_bio">BIOGRAPHY</a>
-                <a href="#music" data-page="music" onclick="showPage('music', event)" class="nav-link hover:text-gold-400 transition-colors py-1" data-i18n="nav_music">MUSIC</a>
-                <a href="#videos" data-page="videos" onclick="showPage('videos', event)" class="nav-link hover:text-gold-400 transition-colors py-1" data-i18n="nav_videos">VIDEOS</a>
-                <a href="#gallery" data-page="gallery" onclick="showPage('gallery', event)" class="nav-link hover:text-gold-400 transition-colors py-1" data-i18n="nav_gallery">GALLERY</a>
-                <a href="#news" data-page="news" onclick="showPage('news', event)" class="nav-link hover:text-gold-400 transition-colors py-1" data-i18n="nav_news">NEWS</a>
-                <a href="#contact" data-page="contact" onclick="showPage('contact', event)" class="nav-link hover:text-gold-400 transition-colors py-1" data-i18n="nav_contact">CONTACT</a>
+            <nav class="hidden lg:flex items-center gap-6 font-en text-[11px] font-medium tracking-[0.15em] text-gray-300">
+                <a href="#home" data-page="home" onclick="showPage('home', event)" class="nav-link hover:text-bronze-400 transition-colors py-1 text-bronze-400 flex items-center gap-1.5" data-i18n="nav_home"><i class="fa-solid fa-house text-[10px]"></i> HOME</a>
+                <a href="#biography" data-page="biography" onclick="showPage('biography', event)" class="nav-link hover:text-bronze-400 transition-colors py-1 flex items-center gap-1.5" data-i18n="nav_bio"><i class="fa-solid fa-user text-[10px]"></i> BIOGRAPHY</a>
+                <a href="#music" data-page="music" onclick="showPage('music', event)" class="nav-link hover:text-bronze-400 transition-colors py-1 flex items-center gap-1.5" data-i18n="nav_music"><i class="fa-solid fa-music text-[10px]"></i> MUSIC</a>
+                <a href="#videos" data-page="videos" onclick="showPage('videos', event)" class="nav-link hover:text-bronze-400 transition-colors py-1 flex items-center gap-1.5" data-i18n="nav_videos"><i class="fa-solid fa-video text-[10px]"></i> VIDEOS</a>
+                <a href="#gallery" data-page="gallery" onclick="showPage('gallery', event)" class="nav-link hover:text-bronze-400 transition-colors py-1 flex items-center gap-1.5" data-i18n="nav_gallery"><i class="fa-solid fa-image text-[10px]"></i> GALLERY</a>
+                <a href="#news" data-page="news" onclick="showPage('news', event)" class="nav-link hover:text-bronze-400 transition-colors py-1 flex items-center gap-1.5" data-i18n="nav_news"><i class="fa-solid fa-newspaper text-[10px]"></i> NEWS</a>
+                <a href="#contact" data-page="contact" onclick="showPage('contact', event)" class="nav-link hover:text-bronze-400 transition-colors py-1 flex items-center gap-1.5" data-i18n="nav_contact"><i class="fa-solid fa-envelope text-[10px]"></i> CONTACT</a>
             </nav>
 
-            <!-- Language Switcher & Actions -->
+            <!-- Language Switcher -->
             <div class="flex items-center gap-3">
-                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-surface border border-gold-400/20 text-gold-400 text-[11px] font-en font-medium py-1 px-2.5 rounded-md cursor-pointer focus:outline-none">
+                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-cardBg border border-gold-500/40 text-bronze-400 text-[11px] font-en font-bold py-1 px-3 rounded-md cursor-pointer focus:outline-none shadow-md">
                     <option value="ckb">KU</option>
                     <option value="fa">FA</option>
                     <option value="en">EN</option>
                 </select>
 
-                <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-md border border-gold-400/20 text-gold-400 hover:bg-gold-400 hover:text-black font-en text-[10px] font-semibold tracking-wider transition-all">
-                    <i class="fa-brands fa-spotify text-xs"></i>
-                    <span>SPOTIFY</span>
-                </a>
-
-                <button id="mobileMenuBtn" aria-label="Menu" class="lg:hidden text-gray-300 hover:text-gold-400 text-lg p-1">
+                <button id="mobileMenuBtn" aria-label="Menu" class="lg:hidden text-gray-200 hover:text-bronze-400 text-lg p-1">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Drawer Navigation -->
-        <div id="mobileMenu" class="hidden lg:hidden bg-surface border-b border-white/5 px-6 py-5 space-y-3">
-            <a href="#home" onclick="showPage('home', event)" class="block font-en text-xs font-medium tracking-widest text-gray-300 hover:text-gold-400 py-1" data-i18n="nav_home">HOME</a>
-            <a href="#biography" onclick="showPage('biography', event)" class="block font-en text-xs font-medium tracking-widest text-gray-300 hover:text-gold-400 py-1" data-i18n="nav_bio">BIOGRAPHY</a>
-            <a href="#music" onclick="showPage('music', event)" class="block font-en text-xs font-medium tracking-widest text-gray-300 hover:text-gold-400 py-1" data-i18n="nav_music">MUSIC</a>
-            <a href="#videos" onclick="showPage('videos', event)" class="block font-en text-xs font-medium tracking-widest text-gray-300 hover:text-gold-400 py-1" data-i18n="nav_videos">VIDEOS</a>
-            <a href="#gallery" onclick="showPage('gallery', event)" class="block font-en text-xs font-medium tracking-widest text-gray-300 hover:text-gold-400 py-1" data-i18n="nav_gallery">GALLERY</a>
-            <a href="#news" onclick="showPage('news', event)" class="block font-en text-xs font-medium tracking-widest text-gray-300 hover:text-gold-400 py-1" data-i18n="nav_news">NEWS</a>
-            <a href="#contact" onclick="showPage('contact', event)" class="block font-en text-xs font-medium tracking-widest text-gray-300 hover:text-gold-400 py-1" data-i18n="nav_contact">CONTACT</a>
+        <div id="mobileMenu" class="hidden lg:hidden bg-cardBg border-b border-gold-500/20 px-6 py-4 space-y-2.5">
+            <a href="#home" onclick="showPage('home', event)" class="block font-en text-xs font-medium tracking-widest text-gray-200 hover:text-bronze-400 py-1" data-i18n="nav_home">HOME</a>
+            <a href="#biography" onclick="showPage('biography', event)" class="block font-en text-xs font-medium tracking-widest text-gray-200 hover:text-bronze-400 py-1" data-i18n="nav_bio">BIOGRAPHY</a>
+            <a href="#music" onclick="showPage('music', event)" class="block font-en text-xs font-medium tracking-widest text-gray-200 hover:text-bronze-400 py-1" data-i18n="nav_music">MUSIC</a>
+            <a href="#videos" onclick="showPage('videos', event)" class="block font-en text-xs font-medium tracking-widest text-gray-200 hover:text-bronze-400 py-1" data-i18n="nav_videos">VIDEOS</a>
+            <a href="#gallery" onclick="showPage('gallery', event)" class="block font-en text-xs font-medium tracking-widest text-gray-200 hover:text-bronze-400 py-1" data-i18n="nav_gallery">GALLERY</a>
+            <a href="#news" onclick="showPage('news', event)" class="block font-en text-xs font-medium tracking-widest text-gray-200 hover:text-bronze-400 py-1" data-i18n="nav_news">NEWS</a>
+            <a href="#contact" onclick="showPage('contact', event)" class="block font-en text-xs font-medium tracking-widest text-gray-200 hover:text-bronze-400 py-1" data-i18n="nav_contact">CONTACT</a>
         </div>
     </header>
 
     <!-- MAIN CONTENT CONTAINER -->
-    <main class="flex-grow pt-20 pb-16">
+    <main class="flex-grow pt-20 pb-16 relative z-10">
 
         <!-- ================= 1. HOME PAGE ================= -->
-        <section id="view-home" class="page-view active max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        <section id="view-home" class="page-view active max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             
-            <!-- Hero Section -->
-            <div class="pt-8 sm:pt-12 grid lg:grid-cols-12 gap-10 items-center">
-                
-                <div class="lg:col-span-7 space-y-5 text-center lg:text-right">
-                    <span class="text-[10px] font-en uppercase tracking-[0.3em] text-gold-400 font-medium block" data-i18n="hero_subtitle">KURDISH SINGER</span>
+            <div class="pt-6 sm:pt-10 grid lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-4 text-center lg:text-right">
+                    <span class="text-[10px] font-en uppercase tracking-[0.3em] text-bronze-400 font-semibold block" data-i18n="hero_subtitle">KURDISH SINGER</span>
                     
-                    <h1 class="font-title text-4xl sm:text-5xl lg:text-6xl font-normal tracking-[0.15em] text-white uppercase leading-tight">
+                    <h1 class="font-serifHeader text-4xl sm:text-5xl lg:text-6xl font-bold tracking-wide text-white uppercase leading-tight drop-shadow-md">
                         KOMSAY
                     </h1>
 
-                    <p class="text-gray-400 text-sm leading-relaxed max-w-lg mx-auto lg:mx-0 font-light" data-i18n="hero_quote">
-                        ھەموو ئەشقەکانم بە دەنگ و ھونەرەکەم وەردەگرم...
+                    <p class="text-gray-300 text-sm leading-relaxed max-w-lg mx-auto lg:mx-0 font-light" data-i18n="hero_quote">
+                        ئەزموونێکی دەگمەن لە جیهانی مۆسیقای کوردی و نوێگەریدا.
                     </p>
 
                     <div class="pt-2 flex flex-wrap gap-3 justify-center lg:justify-start">
-                        <a href="#music" onclick="showPage('music', event)" class="px-6 py-2.5 rounded-full gold-button text-[11px] font-en font-semibold tracking-widest uppercase flex items-center gap-2">
+                        <a href="#music" onclick="showPage('music', event)" class="px-6 py-2.5 rounded-full gold-button text-[11px] font-en font-semibold tracking-wider uppercase flex items-center gap-2">
                             <span data-i18n="btn_listen">LISTEN NOW</span>
                             <i class="fa-solid fa-play text-[9px]"></i>
                         </a>
-                        <a href="#biography" onclick="showPage('biography', event)" class="px-6 py-2.5 rounded-full border border-white/10 hover:border-gold-400/40 text-gray-300 text-[11px] font-en font-medium tracking-widest uppercase transition-all">
+                        <a href="#biography" onclick="showPage('biography', event)" class="px-6 py-2.5 rounded-full border border-gold-500/40 hover:border-bronze-400 text-white text-[11px] font-en font-medium tracking-wider uppercase transition-all shadow-md">
                             <span data-i18n="btn_bio">BIOGRAPHY</span>
                         </a>
                     </div>
@@ -184,90 +196,64 @@
 
                 <!-- Hero Image Frame -->
                 <div class="lg:col-span-5 flex justify-center">
-                    <div class="w-full max-w-xs sm:max-w-sm aspect-[3/4] rounded-2xl overflow-hidden bg-surface gold-border-glow relative">
-                        <img id="heroImage" src="assets/images/hero.jpg" alt="KOMSAY" class="w-full h-full object-cover filter grayscale contrast-110" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'500\' viewBox=\'0 0 400 500\'><rect width=\'100%\' height=\'100%\' fill=\'%23111115\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-family=\'Cinzel\' font-size=\'20\'>KOMSAY</text></svg>';">
+                    <div class="w-full max-w-xs sm:max-w-sm aspect-[3/4] rounded-2xl overflow-hidden luxury-card relative">
+                        <img id="heroImage" src="assets/images/hero.jpg" alt="KOMSAY" class="w-full h-full object-cover filter grayscale contrast-110" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'400\' viewBox=\'0 0 300 400\'><rect width=\'100%\' height=\'100%\' fill=\'%23161311\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-family=\'Cormorant Garamond\' font-size=\'22\'>KOMSAY</text></svg>';">
                     </div>
                 </div>
-
             </div>
 
             <!-- Explore Komsay Grid Cards -->
-            <div class="pt-8 border-t border-white/5">
-                <div class="text-center mb-8">
-                    <h2 class="text-[11px] font-en uppercase tracking-[0.3em] text-gray-400 font-medium">EXPLORE KOMSAY</h2>
+            <div class="pt-6 border-t border-gold-500/20">
+                <div class="text-center mb-6">
+                    <h2 class="text-[11px] font-en uppercase tracking-[0.25em] text-bronze-400 font-semibold">EXPLORE KOMSAY</h2>
                 </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-                    
-                    <!-- Music Card -->
-                    <a href="#music" onclick="showPage('music', event)" class="bg-surface rounded-xl p-3 text-center gold-border-glow flex flex-col items-center group cursor-pointer">
-                        <div class="w-12 h-12 rounded-lg overflow-hidden mb-2 bg-obsidian border border-white/5">
-                            <img src="assets/images/gallery-1.jpg" alt="Music" class="w-full h-full object-cover filter grayscale" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 50 50\'><rect width=\'100%\' height=\'100%\' fill=\'%2308080a\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-size=\'14\'>🎵</text></svg>';">
-                        </div>
-                        <span class="text-[10px] font-en font-semibold text-white group-hover:text-gold-400">MUSIC</span>
-                        <span class="text-[9px] text-gray-500 mt-0.5 line-clamp-1" data-i18n="card_music">مۆسیقا</span>
+                    <a href="#music" onclick="showPage('music', event)" class="luxury-card rounded-xl p-3 text-center flex flex-col items-center group cursor-pointer">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden mb-2 bg-darkBg border border-gold-500/30 flex items-center justify-center text-bronze-400 group-hover:bg-bronze-500 group-hover:text-black transition-colors"><i class="fa-solid fa-music text-xs"></i></div>
+                        <span class="text-[10px] font-en font-semibold text-white group-hover:text-bronze-400">MUSIC</span>
+                        <span class="text-[9px] text-gray-300 mt-0.5 line-clamp-1" data-i18n="card_music">مۆسیقا</span>
                     </a>
-
-                    <!-- Videos Card -->
-                    <a href="#videos" onclick="showPage('videos', event)" class="bg-surface rounded-xl p-3 text-center gold-border-glow flex flex-col items-center group cursor-pointer">
-                        <div class="w-12 h-12 rounded-lg overflow-hidden mb-2 bg-obsidian border border-white/5">
-                            <img src="assets/images/gallery-2.jpg" alt="Videos" class="w-full h-full object-cover filter grayscale" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 50 50\'><rect width=\'100%\' height=\'100%\' fill=\'%2308080a\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-size=\'14\'>🎬</text></svg>';">
-                        </div>
-                        <span class="text-[10px] font-en font-semibold text-white group-hover:text-gold-400">VIDEOS</span>
-                        <span class="text-[9px] text-gray-500 mt-0.5 line-clamp-1" data-i18n="card_videos">ڤیدیۆکان</span>
+                    <a href="#videos" onclick="showPage('videos', event)" class="luxury-card rounded-xl p-3 text-center flex flex-col items-center group cursor-pointer">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden mb-2 bg-darkBg border border-gold-500/30 flex items-center justify-center text-bronze-400 group-hover:bg-bronze-500 group-hover:text-black transition-colors"><i class="fa-solid fa-video text-xs"></i></div>
+                        <span class="text-[10px] font-en font-semibold text-white group-hover:text-bronze-400">VIDEOS</span>
+                        <span class="text-[9px] text-gray-300 mt-0.5 line-clamp-1" data-i18n="card_videos">ڤیدیۆکان</span>
                     </a>
-
-                    <!-- Gallery Card -->
-                    <a href="#gallery" onclick="showPage('gallery', event)" class="bg-surface rounded-xl p-3 text-center gold-border-glow flex flex-col items-center group cursor-pointer">
-                        <div class="w-12 h-12 rounded-lg overflow-hidden mb-2 bg-obsidian border border-white/5">
-                            <img src="assets/images/gallery-3.jpg" alt="Gallery" class="w-full h-full object-cover filter grayscale" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 50 50\'><rect width=\'100%\' height=\'100%\' fill=\'%2308080a\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-size=\'14\'>📷</text></svg>';">
-                        </div>
-                        <span class="text-[10px] font-en font-semibold text-white group-hover:text-gold-400">GALLERY</span>
-                        <span class="text-[9px] text-gray-500 mt-0.5 line-clamp-1" data-i18n="card_gallery">گەلەری</span>
+                    <a href="#gallery" onclick="showPage('gallery', event)" class="luxury-card rounded-xl p-3 text-center flex flex-col items-center group cursor-pointer">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden mb-2 bg-darkBg border border-gold-500/30 flex items-center justify-center text-bronze-400 group-hover:bg-bronze-500 group-hover:text-black transition-colors"><i class="fa-solid fa-image text-xs"></i></div>
+                        <span class="text-[10px] font-en font-semibold text-white group-hover:text-bronze-400">GALLERY</span>
+                        <span class="text-[9px] text-gray-300 mt-0.5 line-clamp-1" data-i18n="card_gallery">گەلەری</span>
                     </a>
-
-                    <!-- Biography Card -->
-                    <a href="#biography" onclick="showPage('biography', event)" class="bg-surface rounded-xl p-3 text-center gold-border-glow flex flex-col items-center group cursor-pointer">
-                        <div class="w-12 h-12 rounded-lg overflow-hidden mb-2 bg-obsidian border border-white/5">
-                            <img src="assets/images/gallery-4.jpg" alt="Biography" class="w-full h-full object-cover filter grayscale" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 50 50\'><rect width=\'100%\' height=\'100%\' fill=\'%2308080a\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-size=\'14\'>👤</text></svg>';">
-                        </div>
-                        <span class="text-[10px] font-en font-semibold text-white group-hover:text-gold-400">BIOGRAPHY</span>
-                        <span class="text-[9px] text-gray-500 mt-0.5 line-clamp-1" data-i18n="card_bio">ژیاننامە</span>
+                    <a href="#biography" onclick="showPage('biography', event)" class="luxury-card rounded-xl p-3 text-center flex flex-col items-center group cursor-pointer">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden mb-2 bg-darkBg border border-gold-500/30 flex items-center justify-center text-bronze-400 group-hover:bg-bronze-500 group-hover:text-black transition-colors"><i class="fa-solid fa-user text-xs"></i></div>
+                        <span class="text-[10px] font-en font-semibold text-white group-hover:text-bronze-400">BIOGRAPHY</span>
+                        <span class="text-[9px] text-gray-300 mt-0.5 line-clamp-1" data-i18n="card_bio">ژیاننامە</span>
                     </a>
-
-                    <!-- News Card -->
-                    <a href="#news" onclick="showPage('news', event)" class="bg-surface rounded-xl p-3 text-center gold-border-glow flex flex-col items-center group cursor-pointer">
-                        <div class="w-12 h-12 rounded-lg overflow-hidden mb-2 bg-obsidian border border-white/5">
-                            <img src="assets/images/gallery-1.jpg" alt="News" class="w-full h-full object-cover filter grayscale" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 50 50\'><rect width=\'100%\' height=\'100%\' fill=\'%2308080a\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-size=\'14\'>📰</text></svg>';">
-                        </div>
-                        <span class="text-[10px] font-en font-semibold text-white group-hover:text-gold-400">NEWS</span>
-                        <span class="text-[9px] text-gray-500 mt-0.5 line-clamp-1" data-i18n="card_news">هەواڵەکان</span>
+                    <a href="#news" onclick="showPage('news', event)" class="luxury-card rounded-xl p-3 text-center flex flex-col items-center group cursor-pointer">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden mb-2 bg-darkBg border border-gold-500/30 flex items-center justify-center text-bronze-400 group-hover:bg-bronze-500 group-hover:text-black transition-colors"><i class="fa-solid fa-newspaper text-xs"></i></div>
+                        <span class="text-[10px] font-en font-semibold text-white group-hover:text-bronze-400">NEWS</span>
+                        <span class="text-[9px] text-gray-300 mt-0.5 line-clamp-1" data-i18n="card_news">هەواڵەکان</span>
                     </a>
-
-                    <!-- Contact Card -->
-                    <a href="#contact" onclick="showPage('contact', event)" class="bg-surface rounded-xl p-3 text-center gold-border-glow flex flex-col items-center group cursor-pointer">
-                        <div class="w-12 h-12 rounded-lg overflow-hidden mb-2 bg-obsidian border border-white/5">
-                            <img src="assets/images/gallery-2.jpg" alt="Contact" class="w-full h-full object-cover filter grayscale" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 50 50\'><rect width=\'100%\' height=\'100%\' fill=\'%2308080a\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-size=\'14\'>✉️</text></svg>';">
-                        </div>
-                        <span class="text-[10px] font-en font-semibold text-white group-hover:text-gold-400">CONTACT</span>
-                        <span class="text-[9px] text-gray-500 mt-0.5 line-clamp-1" data-i18n="card_contact">پەیوەندی</span>
+                    <a href="#contact" onclick="showPage('contact', event)" class="luxury-card rounded-xl p-3 text-center flex flex-col items-center group cursor-pointer">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden mb-2 bg-darkBg border border-gold-500/30 flex items-center justify-center text-bronze-400 group-hover:bg-bronze-500 group-hover:text-black transition-colors"><i class="fa-solid fa-envelope text-xs"></i></div>
+                        <span class="text-[10px] font-en font-semibold text-white group-hover:text-bronze-400">CONTACT</span>
+                        <span class="text-[9px] text-gray-300 mt-0.5 line-clamp-1" data-i18n="card_contact">پەیوەندی</span>
                     </a>
-
                 </div>
             </div>
 
             <!-- Latest Song Player Accent -->
-            <div class="bg-surface rounded-2xl p-5 gold-border-glow flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-gold-400/10 border border-gold-400/20 text-gold-400 flex items-center justify-center text-lg flex-shrink-0">
+            <div class="luxury-card rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xl">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-bronze-400/20 border border-bronze-400/40 text-bronze-400 flex items-center justify-center text-sm flex-shrink-0 animate-pulse">
                         <i class="fa-solid fa-compact-disc"></i>
                     </div>
                     <div>
-                        <span class="text-[9px] font-en uppercase tracking-widest text-gold-400 block font-semibold">LATEST RELEASE</span>
-                        <h3 class="text-sm font-semibold text-white font-en">WTT / ووت</h3>
+                        <span class="text-[9px] font-en uppercase tracking-wider text-bronze-400 block font-semibold">LATEST RELEASE</span>
+                        <h3 class="text-xs font-semibold text-white font-en">WTT / ووت</h3>
                     </div>
                 </div>
-                <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" rel="noopener" class="px-5 py-2 rounded-full border border-gold-400/30 text-gold-400 hover:bg-gold-400 hover:text-black font-en text-[10px] font-semibold tracking-wider transition-all">
+                <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" rel="noopener" class="px-4 py-1.5 rounded-full border border-bronze-400/50 text-bronze-400 hover:bg-bronze-400 hover:text-black font-en text-[10px] font-semibold tracking-wider transition-all">
                     LISTEN ON SPOTIFY
                 </a>
             </div>
@@ -276,45 +262,33 @@
 
         <!-- ================= 2. BIOGRAPHY PAGE ================= -->
         <section id="view-biography" class="page-view max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div class="text-center mb-8 space-y-2">
-                <span class="font-en text-[10px] font-semibold tracking-[0.3em] text-gold-400 uppercase">OFFICIAL BIOGRAPHY</span>
-                <h2 class="text-2xl sm:text-3xl font-normal text-white font-title" data-i18n="bio_title">ژیاننامەی کۆمسای</h2>
-                <div class="w-12 h-0.5 bg-gold-400/40 mx-auto mt-2"></div>
+            <div class="text-center mb-6 space-y-2">
+                <span class="font-en text-[10px] font-semibold tracking-[0.25em] text-bronze-400 uppercase">OFFICIAL BIOGRAPHY</span>
+                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader" data-i18n="bio_title">ژیاننامەی کۆمسای</h2>
+                <div class="w-10 h-0.5 bg-bronze-400/50 mx-auto mt-2"></div>
             </div>
 
-            <div class="bg-surface rounded-2xl p-6 sm:p-8 space-y-6 gold-border-glow">
-                <div class="space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed font-light">
-                    <p class="border-r-2 border-gold-400 pr-3" data-i18n="bio_p1">
-                        کۆمسای لە شاری سنەی ڕۆژهەڵاتی کوردستان لەدایکبووە.
-                    </p>
-                    <p data-i18n="bio_p2">
-                        ئەو لە تەمەنی شەش ساڵییەوە دەستی بە فێربوونی مۆسیقا کردووە و لەگەڵ گەورەبوونیدا بەردەوام پەرەی بە بەهرەکانی داوە.
-                    </p>
-                    <p data-i18n="bio_p3">
-                        کۆمسای ژەنەری ئامێرەکانی کەمانچە و سازە و دواتر ڕێڕەوی هونەریی خۆی بەرەو گۆرانیوتن بردووە.
-                    </p>
-                    <p data-i18n="bio_p4">
-                        یەکەم دەرکەوتنی فەرمیی لە ساڵی ٢٠١٣ لە بەرنامەی "خۆشترین دەنگ" بوو.
-                    </p>
-                    <p data-i18n="bio_p5">
-                        ئەو وەک یەکەم هونەرمەندی کورد لە ستایلی "ترانس" و "هاوس" ناسراوە.
-                    </p>
-                    <p data-i18n="bio_p6">
-                        لە ساڵی ٢٠١٥ وەک باشترین خانمە هونەرمەندی کورد لە کوردستان هەڵبژێردراوە.
-                    </p>
+            <div class="luxury-card rounded-2xl p-6 sm:p-8 space-y-5 text-xs sm:text-sm leading-relaxed">
+                <div class="space-y-3 text-gray-200 font-light">
+                    <p class="border-r-2 border-bronze-500 pr-3" data-i18n="bio_p1">کۆمسای لە شاری سنەی ڕۆژهەڵاتی کوردستان لەدایکبووە.</p>
+                    <p data-i18n="bio_p2">ئەو لە تەمەنی شەش ساڵییەوە دەستی بە فێربوونی مۆسیقا کردووە و لەگەڵ گەورەبوونیدا بەردەوام پەرەی بە بەهرەکانی داوە.</p>
+                    <p data-i18n="bio_p3">کۆمسای ژەنەری ئامێرەکانی کەمانچە و سازە و دواتر ڕێڕەوی هونەریی خۆی بەرەو گۆرانیوتن بردووە.</p>
+                    <p data-i18n="bio_p4">یەکەم دەرکەوتنی فەرمیی لە ساڵی ٢٠١٣ لە بەرنامەی "خۆشترین دەنگ" بوو.</p>
+                    <p data-i18n="bio_p5">ئەو وەک یەکەم هونەرمەندی کورد لە ستایلی "ترانس" و "هاوس" ناسراوە.</p>
+                    <p data-i18n="bio_p6">لە ساڵی ٢٠١٥ وەک باشترین خانمە هونەرمەندی کورد لە کوردستان هەڵبژێردراوە.</p>
                 </div>
 
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-6 border-t border-white/5 text-center font-en">
-                    <div class="p-3 rounded-lg bg-obsidian border border-white/5">
-                        <span class="text-[9px] text-gray-500 uppercase tracking-widest block" data-i18n="birthday">BIRTHDAY</span>
-                        <span class="text-xs font-semibold text-gold-400">14 / 8</span>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4 border-t border-gold-500/20 text-center font-en">
+                    <div class="p-2.5 rounded-lg bg-darkBg border border-gold-500/20">
+                        <span class="text-[9px] text-gray-400 uppercase tracking-widest block" data-i18n="birthday">BIRTHDAY</span>
+                        <span class="text-xs font-semibold text-bronze-400">14 / 8</span>
                     </div>
-                    <div class="p-3 rounded-lg bg-obsidian border border-white/5">
-                        <span class="text-[9px] text-gray-500 uppercase tracking-widest block" data-i18n="genres">GENRES</span>
+                    <div class="p-2.5 rounded-lg bg-darkBg border border-gold-500/20">
+                        <span class="text-[9px] text-gray-400 uppercase tracking-widest block" data-i18n="genres">GENRES</span>
                         <span class="text-xs font-semibold text-white">Trance / House</span>
                     </div>
-                    <div class="p-3 rounded-lg bg-obsidian border border-white/5 col-span-2 sm:col-span-1">
-                        <span class="text-[9px] text-gray-500 uppercase tracking-widest block" data-i18n="instruments">INSTRUMENTS</span>
+                    <div class="p-2.5 rounded-lg bg-darkBg border border-gold-500/20 col-span-2 sm:col-span-1">
+                        <span class="text-[9px] text-gray-400 uppercase tracking-widest block" data-i18n="instruments">INSTRUMENTS</span>
                         <span class="text-xs font-semibold text-white">Violin / Saz</span>
                     </div>
                 </div>
@@ -322,168 +296,186 @@
         </section>
 
         <!-- ================= 3. MUSIC PAGE ================= -->
-        <section id="view-music" class="page-view max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-10">
+        <section id="view-music" class="page-view max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
             <div class="text-center space-y-2">
-                <span class="font-en text-[10px] font-semibold tracking-[0.3em] text-gold-400 uppercase">DISCOGRAPHY</span>
-                <h2 class="text-2xl sm:text-3xl font-normal text-white font-title" data-i18n="music_title">مۆسیقای کۆمسای</h2>
-                <div class="w-12 h-0.5 bg-gold-400/40 mx-auto mt-2"></div>
+                <span class="font-en text-[10px] font-semibold tracking-[0.25em] text-bronze-400 uppercase">DISCOGRAPHY</span>
+                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader" data-i18n="music_title">مۆسیقای کۆمسای</h2>
+                <div class="w-10 h-0.5 bg-bronze-400/50 mx-auto mt-2"></div>
             </div>
 
             <!-- Spotify Stream Link -->
-            <div class="bg-surface rounded-2xl p-6 gold-border-glow flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
-                <div class="flex items-center gap-4">
-                    <i class="fa-brands fa-spotify text-3xl text-emerald-400"></i>
+            <div class="luxury-card rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-right shadow-xl">
+                <div class="flex items-center gap-3">
+                    <i class="fa-brands fa-spotify text-2xl text-emerald-400"></i>
                     <div>
-                        <h3 class="text-sm font-semibold text-white font-en">LISTEN ON SPOTIFY</h3>
-                        <p class="text-gray-400 text-xs mt-0.5" data-i18n="spotify_desc">سەرچاوەی سەرەکی بۆ گوێگرتن لە تەواوی بەرهەمەکان</p>
+                        <h3 class="text-xs font-semibold text-white font-en">LISTEN ON SPOTIFY</h3>
+                        <p class="text-gray-300 text-[11px] mt-0.5" data-i18n="spotify_desc">سەرچاوەی سەرەکی بۆ گوێگرتن لە تەواوی بەرهەمەکان</p>
                     </div>
                 </div>
-                <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" rel="noopener" class="px-6 py-2.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black font-en font-semibold text-[10px] tracking-wider uppercase transition-all">
+                <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" rel="noopener" class="px-5 py-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black font-en font-semibold text-[10px] tracking-wider uppercase transition-all shadow-md">
                     OPEN SPOTIFY
                 </a>
             </div>
 
             <!-- Latest Single -->
-            <div class="space-y-4">
-                <h3 class="text-xs font-en font-semibold tracking-wider text-gold-400 uppercase">LATEST SINGLE</h3>
-                <div class="bg-surface rounded-2xl p-5 gold-border-glow space-y-2">
-                    <h4 class="text-lg font-semibold text-white font-en">WTT / ووت</h4>
-                    <p class="text-gray-300 text-sm italic font-light">"نۆت بە نۆت و وشە بە وشە، ووت لە هەست و هەڵقولاوی ناخی خۆمە."</p>
+            <div class="space-y-3">
+                <h3 class="text-[11px] font-en font-semibold tracking-wider text-bronze-400 uppercase">LATEST SINGLE</h3>
+                <div class="luxury-card rounded-2xl p-4 space-y-1.5 shadow-lg">
+                    <h4 class="text-sm font-semibold text-white font-en">WTT / ووت</h4>
+                    <p class="text-gray-200 text-xs italic font-light">"نۆت بە نۆت و وشە بە وشە، ووت لە هەست و هەڵقولاوی ناخی خۆمە."</p>
                 </div>
             </div>
 
             <!-- Albums -->
-            <div class="space-y-4">
-                <h3 class="text-xs font-en font-semibold tracking-wider text-gold-400 uppercase" data-i18n="albums_heading">ALBUMS</h3>
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div class="bg-surface rounded-xl p-4 gold-border-glow flex items-center justify-between">
+            <div class="space-y-3">
+                <h3 class="text-[11px] font-en font-semibold tracking-wider text-bronze-400 uppercase" data-i18n="albums_heading">ALBUMS</h3>
+                <div class="grid sm:grid-cols-2 gap-3">
+                    <div class="luxury-card rounded-xl p-3.5 flex items-center justify-between text-xs shadow-md">
                         <div>
-                            <h4 class="text-sm font-semibold text-white font-en">Malli Dunya</h4>
-                            <span class="text-[10px] text-gold-400 font-en">2014</span>
+                            <h4 class="font-semibold text-white font-en">Malli Dunya</h4>
+                            <span class="text-[10px] text-bronze-400 font-en">2014</span>
                         </div>
-                        <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="text-xs text-gold-400 hover:underline font-en">Spotify</a>
+                        <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="text-xs text-bronze-400 hover:underline font-en">Spotify</a>
                     </div>
-                    <div class="bg-surface rounded-xl p-4 gold-border-glow flex items-center justify-between">
+                    <div class="luxury-card rounded-xl p-3.5 flex items-center justify-between text-xs shadow-md">
                         <div>
-                            <h4 class="text-sm font-semibold text-white font-en">ZRMA</h4>
-                            <span class="text-[10px] text-gold-400 font-en">2015</span>
+                            <h4 class="font-semibold text-white font-en">ZRMA</h4>
+                            <span class="text-[10px] text-bronze-400 font-en">2015</span>
                         </div>
-                        <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="text-xs text-gold-400 hover:underline font-en">Spotify</a>
+                        <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="text-xs text-bronze-400 hover:underline font-en">Spotify</a>
                     </div>
                 </div>
             </div>
 
             <!-- Singles -->
-            <div class="space-y-4">
-                <h3 class="text-xs font-en font-semibold tracking-wider text-gold-400 uppercase" data-i18n="singles_heading">SINGLES</h3>
-                <div class="grid sm:grid-cols-3 gap-3">
-                    <div class="bg-surface rounded-xl p-3.5 gold-border-glow flex items-center justify-between text-xs"><span class="font-en text-white">Dyan Talla</span><a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="text-gold-400">Spotify</a></div>
-                    <div class="bg-surface rounded-xl p-3.5 gold-border-glow flex items-center justify-between text-xs"><span class="font-en text-white">Cuple Taza</span><a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="text-gold-400">Spotify</a></div>
-                    <div class="bg-surface rounded-xl p-3.5 gold-border-glow flex items-center justify-between text-xs"><span class="font-en text-white">Xray Mexak</span><a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="text-gold-400">Spotify</a></div>
-                    <div class="bg-surface rounded-xl p-3.5 gold-border-glow flex items-center justify-between text-xs"><span class="font-en text-white">Sultan</span><a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="text-gold-400">Spotify</a></div>
-                    <div class="bg-surface rounded-xl p-3.5 gold-border-glow flex items-center justify-between text-xs"><span class="font-en text-white">Am Katet Bash</span><a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="text-gold-400">Spotify</a></div>
-                    <div class="bg-surface rounded-xl p-3.5 gold-border-glow flex items-center justify-between text-xs"><span class="font-en text-white">Slaw Bitch</span><a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="text-gold-400">Spotify</a></div>
+            <div class="space-y-3">
+                <h3 class="text-[11px] font-en font-semibold tracking-wider text-bronze-400 uppercase" data-i18n="singles_heading">SINGLES</h3>
+                <div class="grid sm:grid-cols-3 gap-2.5">
+                    <div class="luxury-card rounded-lg p-3 flex items-center justify-between text-xs shadow-md"><span class="font-en text-white font-semibold">Dyan Talla</span><a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="text-bronze-400">Spotify</a></div>
+                    <div class="luxury-card rounded-lg p-3 flex items-center justify-between text-xs shadow-md"><span class="font-en text-white font-semibold">Cuple Taza</span><a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="text-bronze-400">Spotify</a></div>
+                    <div class="luxury-card rounded-lg p-3 flex items-center justify-between text-xs shadow-md"><span class="font-en text-white font-semibold">Xray Mexak</span><a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="text-bronze-400">Spotify</a></div>
+                    <div class="luxury-card rounded-lg p-3 flex items-center justify-between text-xs shadow-md"><span class="font-en text-white font-semibold">Sultan</span><a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="text-bronze-400">Spotify</a></div>
+                    <div class="luxury-card rounded-lg p-3 flex items-center justify-between text-xs shadow-md"><span class="font-en text-white font-semibold">Am Katet Bash</span><a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="text-bronze-400">Spotify</a></div>
+                    <div class="luxury-card rounded-lg p-3 flex items-center justify-between text-xs shadow-md"><span class="font-en text-white font-semibold">Slaw Bitch</span><a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="text-bronze-400">Spotify</a></div>
                 </div>
             </div>
         </section>
 
         <!-- ================= 4. GALLERY PAGE ================= -->
         <section id="view-gallery" class="page-view max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div class="text-center mb-8 space-y-2">
-                <span class="font-en text-[10px] font-semibold tracking-[0.3em] text-gold-400 uppercase">GALLERY</span>
-                <h2 class="text-2xl sm:text-3xl font-normal text-white font-title" data-i18n="gallery_title">گەلەری وێنەکان</h2>
-                <div class="w-12 h-0.5 bg-gold-400/40 mx-auto mt-2"></div>
+            <div class="text-center mb-6 space-y-2">
+                <span class="font-en text-[10px] font-semibold tracking-[0.25em] text-bronze-400 uppercase">GALLERY</span>
+                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader" data-i18n="gallery_title">گەلەری وێنەکان</h2>
+                <div class="w-10 h-0.5 bg-bronze-400/50 mx-auto mt-2"></div>
             </div>
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <div class="aspect-square bg-surface rounded-xl overflow-hidden gold-border-glow">
-                    <img src="assets/images/gallery-1.jpg" alt="Gallery 1" class="w-full h-full object-cover filter grayscale" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\' viewBox=\'0 0 200 200\'><rect width=\'100%\' height=\'100%\' fill=\'%23111115\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-size=\'12\'>gallery-1.jpg</text></svg>';">
+                <div class="aspect-square luxury-card rounded-xl overflow-hidden shadow-xl">
+                    <img src="assets/images/gallery-1.jpg" alt="Gallery 1" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'100%\' height=\'100%\' fill=\'%23161311\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23c59b57\' font-size=\'11\'>gallery-1.jpg</text></svg>';">
                 </div>
-                <div class="aspect-square bg-surface rounded-xl overflow-hidden gold-border-glow">
-                    <img src="assets/images/gallery-2.jpg" alt="Gallery 2" class="w-full h-full object-cover filter grayscale" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\' viewBox=\'0 0 200 200\'><rect width=\'100%\' height=\'100%\' fill=\'%23111115\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-size=\'12\'>gallery-2.jpg</text></svg>';">
+                <div class="aspect-square luxury-card rounded-xl overflow-hidden shadow-xl">
+                    <img src="assets/images/gallery-2.jpg" alt="Gallery 2" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'100%\' height=\'100%\' fill=\'%23161311\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23c59b57\' font-size=\'11\'>gallery-2.jpg</text></svg>';">
                 </div>
-                <div class="aspect-square bg-surface rounded-xl overflow-hidden gold-border-glow">
-                    <img src="assets/images/gallery-3.jpg" alt="Gallery 3" class="w-full h-full object-cover filter grayscale" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\' viewBox=\'0 0 200 200\'><rect width=\'100%\' height=\'100%\' fill=\'%23111115\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-size=\'12\'>gallery-3.jpg</text></svg>';">
+                <div class="aspect-square luxury-card rounded-xl overflow-hidden shadow-xl">
+                    <img src="assets/images/gallery-3.jpg" alt="Gallery 3" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'100%\' height=\'100%\' fill=\'%23161311\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23c59b57\' font-size=\'11\'>gallery-3.jpg</text></svg>';">
                 </div>
-                <div class="aspect-square bg-surface rounded-xl overflow-hidden gold-border-glow">
-                    <img src="assets/images/gallery-4.jpg" alt="Gallery 4" class="w-full h-full object-cover filter grayscale" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\' viewBox=\'0 0 200 200\'><rect width=\'100%\' height=\'100%\' fill=\'%23111115\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-size=\'12\'>gallery-4.jpg</text></svg>';">
+                <div class="aspect-square luxury-card rounded-xl overflow-hidden shadow-xl">
+                    <img src="assets/images/gallery-4.jpg" alt="Gallery 4" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'100%\' height=\'100%\' fill=\'%23161311\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23c59b57\' font-size=\'11\'>gallery-4.jpg</text></svg>';">
                 </div>
             </div>
         </section>
 
         <!-- ================= 5. VIDEOS PAGE ================= -->
         <section id="view-videos" class="page-view max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div class="text-center mb-8 space-y-2">
-                <span class="font-en text-[10px] font-semibold tracking-[0.3em] text-gold-400 uppercase">VIDEOS</span>
-                <h2 class="text-2xl sm:text-3xl font-normal text-white font-title" data-i18n="videos_title">ڤیدیۆ کلیپەکان</h2>
-                <div class="w-12 h-0.5 bg-gold-400/40 mx-auto mt-2"></div>
+            <div class="text-center mb-6 space-y-2">
+                <span class="font-en text-[10px] font-semibold tracking-[0.25em] text-bronze-400 uppercase">VIDEOS</span>
+                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader" data-i18n="videos_title">ڤیدیۆ کلیپەکان</h2>
+                <div class="w-10 h-0.5 bg-bronze-400/50 mx-auto mt-2"></div>
             </div>
 
-            <div class="bg-surface rounded-2xl p-8 text-center space-y-5 max-w-xl mx-auto gold-border-glow">
-                <i class="fa-brands fa-youtube text-4xl text-red-500"></i>
-                <h3 class="text-lg font-semibold text-white font-en">OFFICIAL YOUTUBE CHANNEL</h3>
-                <p class="text-gray-300 text-sm leading-relaxed" data-i18n="youtube_desc">بۆ بینینی هەموو ڤیدیۆ کلیپە فەرمییەکان سەردانی کەناڵی یووتیووب بکەن.</p>
-                <a href="https://youtube.com/@komsay" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-red-600 hover:bg-red-500 text-white font-en font-semibold text-xs tracking-wider uppercase transition-all">
+            <div class="luxury-card rounded-2xl p-6 text-center space-y-4 max-w-md mx-auto shadow-2xl">
+                <i class="fa-brands fa-youtube text-4xl text-red-500 animate-pulse"></i>
+                <h3 class="text-sm font-semibold text-white font-en">OFFICIAL YOUTUBE CHANNEL</h3>
+                <p class="text-gray-300 text-xs leading-relaxed" data-i18n="youtube_desc">بۆ بینینی هەموو ڤیدیۆ کلیپە فەرمییەکان سەردانی کەناڵی یووتیووب بکەن.</p>
+                <a href="https://youtube.com/@komsay" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-red-600 hover:bg-red-500 text-white font-en font-semibold text-[10px] tracking-wider uppercase transition-all shadow-md">
                     <span>VISIT YOUTUBE CHANNEL</span>
                 </a>
             </div>
         </section>
 
         <!-- ================= 6. NEWS PAGE ================= -->
-        <section id="view-news" class="page-view max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+        <section id="view-news" class="page-view max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
             <div class="text-center space-y-2">
-                <span class="font-en text-[10px] font-semibold tracking-[0.3em] text-gold-400 uppercase">UPDATES</span>
-                <h2 class="text-2xl sm:text-3xl font-normal text-white font-title" data-i18n="news_title">دواین هەواڵەکان</h2>
-                <div class="w-12 h-0.5 bg-gold-400/40 mx-auto mt-2"></div>
+                <span class="font-en text-[10px] font-semibold tracking-[0.25em] text-bronze-400 uppercase">NEWS & TV INTERVIEWS</span>
+                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader" data-i18n="news_title">هەواڵ و چاوپێکەوتنەکان</h2>
+                <div class="w-10 h-0.5 bg-bronze-400/50 mx-auto mt-2"></div>
             </div>
 
-            <div class="bg-surface rounded-2xl p-6 gold-border-glow space-y-3">
-                <span class="text-[9px] font-en uppercase tracking-widest text-gold-400 font-semibold block">FEATURED</span>
-                <h3 class="text-lg font-semibold text-white font-en">WTT / ووت</h3>
-                <p class="text-gray-300 text-sm italic font-light border-r-2 border-gold-400 pr-3">"نۆت بە نۆت و وشە بە وشە، ووت لە هەست و هەڵقولاوی ناخی خۆمە."</p>
+            <div class="luxury-card rounded-xl p-4 space-y-2 text-xs shadow-lg">
+                <span class="text-[9px] font-en uppercase tracking-widest text-bronze-400 font-semibold block">FEATURED RELEASE</span>
+                <h3 class="text-sm font-semibold text-white font-en">WTT / ووت</h3>
+                <p class="text-gray-300 italic font-light border-r-2 border-bronze-500 pr-2.5">"نۆت بە نۆت و وشە بە وشە، ووت لە هەست و هەڵقولاوی ناخی خۆمە."</p>
             </div>
 
-            <div class="bg-surface rounded-2xl p-6 gold-border-glow space-y-2">
-                <h3 class="text-base font-semibold text-white" data-i18n="upcoming_works_title">بەرهەمی نوێ لە ڕێگەیە</h3>
-                <p class="text-gray-400 text-sm leading-relaxed" data-i18n="upcoming_works_desc">هونەرمەند کۆمسای بەردەوامە لەسەر کارکردن لەسەر بەرهەم و پڕۆژەی نوێی هونەری.</p>
+            <div class="space-y-3">
+                <h3 class="text-[11px] font-en font-semibold tracking-wider text-bronze-400 uppercase" data-i18n="tv_heading">TV INTERVIEWS / چاوپێکەوتنەکان</h3>
+                
+                <div class="luxury-card rounded-xl p-4 space-y-2.5 shadow-lg">
+                    <div class="flex justify-between items-center text-[10px] text-bronze-400 font-en">
+                        <span>LIVE STREAM</span>
+                        <span>YouTube Live</span>
+                    </div>
+                    <h4 class="text-xs font-semibold text-white">چاوپێکەوتنی ڕاستەوخۆ و تایبەتی کۆمسای</h4>
+                    <div>
+                        <a href="https://www.youtube.com/live/FpmcjjNT8dw?si=e_j-8lsBqY8uR8tv" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-red-600 text-white font-en text-[10px] font-semibold uppercase shadow-md">
+                            <i class="fa-brands fa-youtube"></i> WATCH ON YOUTUBE
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- ================= 7. CONTACT PAGE ================= -->
-        <section id="view-contact" class="page-view max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+        <section id="view-contact" class="page-view max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
             <div class="text-center space-y-2">
-                <span class="font-en text-[10px] font-semibold tracking-[0.3em] text-gold-400 uppercase">CONTACT</span>
-                <h2 class="text-2xl sm:text-3xl font-normal text-white font-title" data-i18n="contact_title">پەیوەندی و تۆڕە کۆمەڵایەتییەکان</h2>
-                <div class="w-12 h-0.5 bg-gold-400/40 mx-auto mt-2"></div>
+                <span class="font-en text-[10px] font-semibold tracking-[0.25em] text-bronze-400 uppercase">CONTACT & SOCIALS</span>
+                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader" data-i18n="contact_title">پەیوەندی و تۆڕە کۆمەڵایەتییەکان</h2>
+                <div class="w-10 h-0.5 bg-bronze-400/50 mx-auto mt-2"></div>
             </div>
 
-            <div class="bg-surface rounded-2xl p-6 gold-border-glow text-center space-y-3">
-                <span class="text-[10px] font-en uppercase tracking-widest text-gray-400 block font-semibold">MANAGEMENT & BOOKING</span>
-                <a href="mailto:komsayagent@gmail.com" class="text-gold-400 font-en font-semibold text-base hover:underline block">komsayagent@gmail.com</a>
+            <div class="luxury-card rounded-xl p-4 text-center space-y-1.5 text-xs shadow-lg">
+                <span class="text-[9px] font-en uppercase tracking-widest text-gray-300 block font-semibold">MANAGEMENT EMAIL</span>
+                <a href="mailto:komsayagent@gmail.com" class="text-bronze-400 font-en font-semibold hover:underline block">komsayagent@gmail.com</a>
             </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <a href="https://www.instagram.com/komsay/" target="_blank" class="bg-surface p-4 rounded-xl gold-border-glow text-center space-y-1 block"><i class="fa-brands fa-instagram text-xl text-pink-500"></i><span class="text-xs font-en font-semibold text-white block">Instagram</span></a>
-                <a href="https://youtube.com/@komsay" target="_blank" class="bg-surface p-4 rounded-xl gold-border-glow text-center space-y-1 block"><i class="fa-brands fa-youtube text-xl text-red-500"></i><span class="text-xs font-en font-semibold text-white block">YouTube</span></a>
-                <a href="https://www.tiktok.com/@komsay" target="_blank" class="bg-surface p-4 rounded-xl gold-border-glow text-center space-y-1 block"><i class="fa-brands fa-tiktok text-xl text-cyan-400"></i><span class="text-xs font-en font-semibold text-white block">TikTok</span></a>
-                <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="bg-surface p-4 rounded-xl gold-border-glow text-center space-y-1 block"><i class="fa-brands fa-spotify text-xl text-emerald-400"></i><span class="text-xs font-en font-semibold text-white block">Spotify</span></a>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <a href="https://www.instagram.com/komsay/" target="_blank" rel="noopener" class="luxury-card p-3 rounded-xl text-center space-y-1 block shadow-md"><i class="fa-brands fa-instagram text-lg text-pink-500"></i><span class="text-[10px] font-en font-semibold text-white block">Instagram</span></a>
+                <a href="https://youtube.com/@komsay" target="_blank" rel="noopener" class="luxury-card p-3 rounded-xl text-center space-y-1 block shadow-md"><i class="fa-brands fa-youtube text-lg text-red-500"></i><span class="text-[10px] font-en font-semibold text-white block">YouTube</span></a>
+                <a href="https://www.tiktok.com/@komsay" target="_blank" rel="noopener" class="luxury-card p-3 rounded-xl text-center space-y-1 block shadow-md"><i class="fa-brands fa-tiktok text-lg text-cyan-400"></i><span class="text-[10px] font-en font-semibold text-white block">TikTok</span></a>
+                <a href="https://www.threads.com/@komsay" target="_blank" rel="noopener" class="luxury-card p-3 rounded-xl text-center space-y-1 block shadow-md"><i class="fa-brands fa-threads text-lg text-white"></i><span class="text-[10px] font-en font-semibold text-white block">Threads</span></a>
+                <a href="http://twitter.com/komsay" target="_blank" rel="noopener" class="luxury-card p-3 rounded-xl text-center space-y-1 block shadow-md"><i class="fa-brands fa-x-twitter text-lg text-gray-200"></i><span class="text-[10px] font-en font-semibold text-white block">X / Twitter</span></a>
+                <a href="https://www.facebook.com/Komsay" target="_blank" rel="noopener" class="luxury-card p-3 rounded-xl text-center space-y-1 block shadow-md"><i class="fa-brands fa-facebook text-lg text-blue-500"></i><span class="text-[10px] font-en font-semibold text-white block">Facebook</span></a>
+                <a href="https://snapchat.com/t/J3TUY6pE" target="_blank" rel="noopener" class="luxury-card p-3 rounded-xl text-center space-y-1 block shadow-md"><i class="fa-brands fa-snapchat text-lg text-yellow-400"></i><span class="text-[10px] font-en font-semibold text-white block">Snapchat</span></a>
+                <a href="https://t.me/Komsay" target="_blank" rel="noopener" class="luxury-card p-3 rounded-xl text-center space-y-1 block shadow-md"><i class="fa-brands fa-telegram text-lg text-blue-400"></i><span class="text-[10px] font-en font-semibold text-white block">Telegram</span></a>
             </div>
         </section>
 
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-obsidian border-t border-white/5 py-8 text-center space-y-4">
-        <span class="font-title text-lg font-semibold tracking-[0.2em] text-white">KOMSAY</span>
-        <div class="flex justify-center gap-4 text-gray-400 text-sm">
-            <a href="https://www.instagram.com/komsay/" target="_blank" class="hover:text-gold-400"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://youtube.com/@komsay" target="_blank" class="hover:text-gold-400"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="hover:text-gold-400"><i class="fa-brands fa-spotify"></i></a>
+    <footer class="bg-darkBg border-t border-gold-500/20 py-6 text-center space-y-3 relative z-10">
+        <span class="font-serifHeader text-base font-bold tracking-[0.2em] text-white">KOMSAY</span>
+        <div class="flex justify-center gap-4 text-gray-300 text-xs">
+            <a href="https://www.instagram.com/komsay/" target="_blank" rel="noopener" class="hover:text-bronze-400"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com/@komsay" target="_blank" rel="noopener" class="hover:text-bronze-400"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@komsay" target="_blank" rel="noopener" class="hover:text-bronze-400"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://snapchat.com/t/J3TUY6pE" target="_blank" rel="noopener" class="hover:text-bronze-400"><i class="fa-brands fa-snapchat"></i></a>
+            <a href="https://t.me/Komsay" target="_blank" rel="noopener" class="hover:text-bronze-400"><i class="fa-brands fa-telegram"></i></a>
         </div>
-        <p class="text-[10px] font-en text-gray-500 tracking-wider">&copy; 2026 KOMSAY. ALL RIGHTS RESERVED.</p>
+        <p class="text-[9px] font-en text-gray-400 tracking-wider">&copy; 2026 KOMSAY. ALL RIGHTS RESERVED.</p>
     </footer>
 
-    <!-- JAVASCRIPT SWITCHER & NAVIGATION LOGIC -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
         const translations = {
             ckb: {
@@ -495,12 +487,12 @@
                 nav_news: "هەواڵەکان",
                 nav_contact: "پەیوەندی",
                 hero_subtitle: "KURDISH SINGER",
-                hero_quote: "ھەموو ئەشقەکانم بە دەنگ و ھونەرەکەم وەردەگرم...",
+                hero_quote: "ئەزموونێکی دەگمەن لە جیهانی مۆسیقای کوردی و نوێگەریدا.",
                 btn_listen: "LISTEN NOW",
                 btn_bio: "BIOGRAPHY",
-                card_music: "نوێترین گۆرانییەکان",
-                card_videos: "بینینی کلیپەکان",
-                card_gallery: "بینینی وێنەکان",
+                card_music: "مۆسیقا",
+                card_videos: "ڤیدیۆکان",
+                card_gallery: "گەلەری",
                 card_bio: "ژیاننامە",
                 card_news: "هەواڵەکان",
                 card_contact: "پەیوەندی",
@@ -521,9 +513,8 @@
                 gallery_title: "گەلەری وێنەکان",
                 videos_title: "ڤیدیۆ کلیپەکان",
                 youtube_desc: "بۆ بینینی هەموو ڤیدیۆ کلیپە فەرمییەکان سەردانی کەناڵی یووتیووب بکەن.",
-                news_title: "دواین هەواڵەکان",
-                upcoming_works_title: "بەرهەمی نوێ لە ڕێگەیە",
-                upcoming_works_desc: "هونەرمەند کۆمسای بەردەوامە لەسەر کارکردن لەسەر بەرهەم و پڕۆژەی نوێی هونەری.",
+                news_title: "هەواڵ و چاوپێکەوتنەکان",
+                tv_heading: "چاوپێکەوتنەکان",
                 contact_title: "پەیوەندی و تۆڕە کۆمەڵایەتییەکان"
             },
             fa: {
@@ -535,12 +526,12 @@
                 nav_news: "اخبار",
                 nav_contact: "تماس",
                 hero_subtitle: "KURDISH SINGER",
-                hero_quote: "تمام عشق خود را با صدا و هنرم دریافت می کنم...",
+                hero_quote: "تجربه‌ای خاص در دنیای موسیقی کردی و نوآوری.",
                 btn_listen: "LISTEN NOW",
                 btn_bio: "BIOGRAPHY",
-                card_music: "جدیدترین آهنگ‌ها",
-                card_videos: "ویدیو کلیپ‌ها",
-                card_gallery: "عکس‌ها",
+                card_music: "موسیقی",
+                card_videos: "ویدیوها",
+                card_gallery: "گالری",
                 card_bio: "بیوگرافی",
                 card_news: "اخبار",
                 card_contact: "تماس",
@@ -561,9 +552,8 @@
                 gallery_title: "گالری تصاویر",
                 videos_title: "ویدیو کلیپ‌ها",
                 youtube_desc: "برای مشاهده تمامی ویدیو کلیپ‌های رسمی به کانال یوتیوب مراجعه کنید.",
-                news_title: "آخرین اخبار",
-                upcoming_works_title: "آثار جدید در راه است",
-                upcoming_works_desc: "کومسای همواره در حال کار بر روی آثار و پروژه‌های جدید هنری است.",
+                news_title: "اخبار و مصاحبه‌ها",
+                tv_heading: "مصاحبه‌ها",
                 contact_title: "ارتباط و شبکه‌های اجتماعی"
             },
             en: {
@@ -575,12 +565,12 @@
                 nav_news: "NEWS",
                 nav_contact: "CONTACT",
                 hero_subtitle: "KURDISH SINGER",
-                hero_quote: "All my love comes through my voice and art...",
+                hero_quote: "A unique experience in the world of Kurdish music and innovation.",
                 btn_listen: "LISTEN NOW",
                 btn_bio: "BIOGRAPHY",
-                card_music: "Latest Songs",
-                card_videos: "Music Videos",
-                card_gallery: "Photos",
+                card_music: "Music",
+                card_videos: "Videos",
+                card_gallery: "Gallery",
                 card_bio: "Biography",
                 card_news: "News",
                 card_contact: "Contact",
@@ -601,9 +591,8 @@
                 gallery_title: "PHOTO GALLERY",
                 videos_title: "MUSIC VIDEOS",
                 youtube_desc: "Visit official YouTube channel for videos.",
-                news_title: "NEWS & UPDATES",
-                upcoming_works_title: "NEW WORKS IN PROGRESS",
-                upcoming_works_desc: "Artist Komsay is actively working on new musical projects.",
+                news_title: "NEWS & TV INTERVIEWS",
+                tv_heading: "TV INTERVIEWS",
                 contact_title: "CONTACT & SOCIAL MEDIA"
             }
         };
@@ -626,29 +615,25 @@
         function showPage(pageId, event) {
             if (event) event.preventDefault();
 
-            // Hide all pages
             document.querySelectorAll('.page-view').forEach(view => {
                 view.classList.remove('active');
             });
 
-            // Show target page
             const target = document.getElementById('view-' + pageId);
             if (target) {
                 target.classList.add('active');
             }
 
-            // Update Navbar Active Links
             document.querySelectorAll('.nav-link').forEach(link => {
                 if (link.getAttribute('data-page') === pageId) {
-                    link.classList.add('text-gold-400');
-                    link.classList.remove('text-gray-400');
+                    link.classList.add('text-bronze-400');
+                    link.classList.remove('text-gray-300');
                 } else {
-                    link.classList.remove('text-gold-400');
-                    link.classList.add('text-gray-400');
+                    link.classList.remove('text-bronze-400');
+                    link.classList.add('text-gray-300');
                 }
             });
 
-            // Close Mobile Menu
             const mobileMenu = document.getElementById('mobileMenu');
             if (mobileMenu) mobileMenu.classList.add('hidden');
 
@@ -675,4 +660,3 @@
     </script>
 </body>
 </html>
-
