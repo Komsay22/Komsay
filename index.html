@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ckb" dir="rtl" class="scroll-smooth">
 <head>
@@ -135,7 +134,6 @@
             transform: translateY(-2px);
         }
 
-        /* Lyrics Modal Popup */
         #lyricsModal {
             display: none;
             position: fixed;
@@ -198,7 +196,7 @@
         <div class="island-nav rounded-full px-4 py-2 flex items-center justify-between gap-3">
             <a href="#home" onclick="showPage('home', event)" class="flex items-center gap-2 flex-shrink-0">
                 <div class="w-7 h-7 rounded-full overflow-hidden border border-goldAccent/50 bg-cardBg flex items-center justify-center">
-                    <img src="assets/images/logo.png" alt="Logo" class="w-full h-full object-cover" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'30\' height=\'30\' viewBox=\'0 0 30 30\'><circle cx=\'15\' cy=\'15\' r=\'15\' fill=\'%2313110f\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-size=\'11\' font-family=\'Cormorant Garamond\'>K</text></svg>';">
+                    <span class="font-serifHeader text-xs font-bold text-goldAccent">K</span>
                 </div>
                 <span class="font-serifHeader text-sm font-bold tracking-[0.15em] text-white hidden sm:inline">KOMSAY</span>
             </a>
@@ -302,7 +300,7 @@
             </div>
         </section>
 
-        <!-- ================= 3. MUSIC PAGE (With Lyrics Buttons) ================= -->
+        <!-- ================= 3. MUSIC PAGE (Featured WTT 2024 + Singles & Albums) ================= -->
         <section id="view-music" class="page-view max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
             <div class="text-center space-y-2">
                 <span class="font-en text-[10px] font-semibold tracking-[0.25em] text-goldAccent uppercase">DISCOGRAPHY</span>
@@ -310,95 +308,102 @@
                 <div class="w-10 h-0.5 bg-goldAccent/50 mx-auto mt-2"></div>
             </div>
 
-            <!-- Featured Single (WTT) -->
+            <!-- Featured Single WTT (2024) -->
             <div class="space-y-3">
-                <h3 class="text-[11px] font-en font-semibold tracking-wider text-goldAccent uppercase">✨ LATEST SINGLE (2024)</h3>
-                <div class="bg-cardBg rounded-2xl p-4 luxury-card flex items-center justify-between gap-4">
+                <h3 class="text-[11px] font-en font-semibold tracking-wider text-goldAccent uppercase">✨ LATEST SINGLE • 2024 (دواین بەرهەم)</h3>
+                <div class="bg-cardBg rounded-2xl p-4 luxury-card flex items-center justify-between gap-4 border-goldAccent/60">
                     <div class="flex items-center gap-3">
                         <div class="equalizer"><span></span><span></span><span></span></div>
                         <div>
-                            <span class="text-[9px] font-en text-goldAccent font-semibold block uppercase">SINGLE • 2024</span>
+                            <span class="text-[9px] font-en text-goldAccent font-semibold block uppercase">دواین بەرهەمی ساڵی ٢٠٢٤</span>
                             <h4 class="text-sm font-bold text-white font-en">WTT / ووت</h4>
                         </div>
                     </div>
                     <div class="flex gap-1.5 flex-shrink-0">
-                        <button onclick="openLyrics('WTT', `وتت تالی لە ئە و قژە نادەم\nدڵم نایە بە دەستی بای دەمەم\nمەگەر بمرم لە وەفا لادەم\nمن مەردم پشتت بە ر نادەم\n\nوتت دڵم بی تو بەردە\nوە ک زەوی بی خووەر سەردە\nتو هەبی هە ر چی دەردە\nدەرمانە ئە مه قسەی مەردە`)" class="px-2.5 py-1.5 rounded bg-goldAccent/20 text-goldAccent text-[10px] font-bold"><i class="fa-solid fa-book-open"></i> شێعر</button>
-                        <a href="https://youtu.be/6Yv-9z8Lnn0" target="_blank" class="px-3 py-1.5 rounded-md bg-red-500/20 text-red-400 text-[10px] font-en font-semibold"><i class="fa-brands fa-youtube"></i></a>
+                        <button onclick="openLyrics('WTT', `وتت تالی لە ئە و قژە نادەم\nدڵم نایە بە دەستی بای دەمەم\nمەگەر بمرم لە وەفا لادەم\nمن مەردم پشتت بە ر نادەم\n\nوتت دڵم بی تو بەردە\nوە ک زەوی بی خووەر سەردە\nتو هەبی هە ر چی دەردە\nدەرمانە ئە مه قسەی مەردە\nکەسێ مانەندی پەروانە نەسووتابی پەڕ و بالی\nلە سوزی ناخی سووتاو و دڵی من کە ی بێ حالی\nهیچ کەسێک وە ک تۆ نیە\nکلیلی ئە و دڵە می نیە\nعەشقی تۆ سیحراویە\nئە مەوی و رێگە م نیە\nچڕپیک بە گویم دراوە\nبە لینی عەشقیک جئ ماوە\nکردوومە بە تەوقی پرچم\nیار ئاگای لی نەماوە`)" class="px-2.5 py-1.5 rounded bg-goldAccent/20 text-goldAccent text-[10px] font-bold"><i class="fa-solid fa-book-open"></i> شێعر</button>
+                        <a href="https://youtu.be/6Yv-9z8Lnn0?si=B-r2HUVa5ee4HpNU" target="_blank" class="px-3 py-1.5 rounded-md bg-red-500/20 text-red-400 text-[10px] font-en font-semibold"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Albums Section -->
+            <!-- Singles Section with Direct Links -->
             <div class="space-y-3">
-                <h3 class="text-[11px] font-en font-semibold tracking-wider text-goldAccent uppercase">ALBUMS</h3>
-                <div class="grid sm:grid-cols-2 gap-3">
-                    <div class="bg-cardBg rounded-xl p-4 luxury-card flex items-center justify-between">
-                        <div class="flex items-center gap-2.5">
-                            <div class="equalizer"><span></span><span></span><span></span></div>
-                            <div><h4 class="text-xs font-semibold text-white font-en">Malli Dunya</h4><span class="text-[10px] text-goldAccent font-en">2014 Album</span></div>
-                        </div>
-                        <a href="https://youtu.be/5j3s87yimXM" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]"><i class="fa-brands fa-youtube"></i></a>
-                    </div>
-                    <div class="bg-cardBg rounded-xl p-4 luxury-card flex items-center justify-between">
-                        <div class="flex items-center gap-2.5">
-                            <div class="equalizer"><span></span><span></span><span></span></div>
-                            <div><h4 class="text-xs font-semibold text-white font-en">ZRMA</h4><span class="text-[10px] text-goldAccent font-en">2015 Album</span></div>
-                        </div>
-                        <a href="https://youtu.be/pSHSKcIo-Wo" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]"><i class="fa-brands fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Singles Section -->
-            <div class="space-y-3">
-                <h3 class="text-[11px] font-en font-semibold tracking-wider text-goldAccent uppercase">SINGLES (WITH LYRICS)</h3>
+                <h3 class="text-[11px] font-en font-semibold tracking-wider text-goldAccent uppercase">SINGLES (WITH LYRICS & YOUTUBE)</h3>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
                     
-                    <!-- Xray Mexak -->
+                    <!-- Slaw Bitch -->
                     <div class="bg-cardBg rounded-xl p-3 luxury-card flex items-center justify-between text-xs">
-                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">خڕەی مێخەک</span></div>
+                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">سڵاو بێچ</span></div>
                         <div class="flex gap-1.5">
-                            <button onclick="openLyrics('خڕەی مێخەک (Xray Mexak)', `دەنگا دەنگ دەنگی دێ\nخڕەی مێخەک بەنی دێ\nلارو لەنجەی وا دیارە\nئەو گۆڵە مەیلی جەنگی دێ\n\nئای گەردی گەردی گەردی بڕوا بۆ لای مل زەردی...\nخۆزگا هەفتەو دوو ڕۆژێ لەبەر ماڵیان ئەمردی...`)" class="px-2 py-1 rounded bg-goldAccent/20 text-goldAccent text-[9px] font-bold">شێعر</button>
-                            <a href="https://youtu.be/pSHSKcIo-Wo" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
+                            <button onclick="openLyrics('سڵاو بێچ', `تێکستی گۆرانی سڵاو بێچ`)" class="px-2 py-1 rounded bg-goldAccent/20 text-goldAccent text-[9px] font-bold">شێعر</button>
+                            <a href="https://youtu.be/5j3s87yimXM?si=pWLk4cglS9J04e6G" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
                         </div>
                     </div>
 
-                    <!-- Em Katet Baş -->
+                    <!-- Am Katet Bash -->
                     <div class="bg-cardBg rounded-xl p-3 luxury-card flex items-center justify-between text-xs">
-                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">Em Katet Baş</span></div>
+                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">ئەم کاتەت باش</span></div>
                         <div class="flex gap-1.5">
-                            <button onclick="openLyrics('Em Katet Baş', `Em Katet Baş Gullm\nÇonî Başî Rohim Dillm\nêmewê min pêw bilêm\nHer Toy Dilldarî Dillm\n\nBebe, it's better to be alone\nThan to be with someone\nWho makes you feel alone`)" class="px-2 py-1 rounded bg-goldAccent/20 text-goldAccent text-[9px] font-bold">شێعر</button>
-                            <a href="https://youtu.be/KQRhnDrvUDM" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
+                            <button onclick="openLyrics('Em Katet Baş', `Em Katet Baş Gullm\nÇonî Başî Rohim Dillm\nêmewê min pêw bilêm\nHer Toy Dilldarî Dillm\nBibûre lê Katim Girty\nBoçî to Lêm napirsî\nWa dîare Atîrsy\nLe eşqu Xoşewistî\nBebe, it's better to be alone\nThan to be with someone\nWho makes you feel alone\nDawye le Kelem\nKem Kem u Nim Nim\nHenasey Kall Kall\nDilli Pirر le Xem\nDawye le Kelem\nWazit Le Bênim\nMinîş Wek tu Bim Dillt Bişkênim`)" class="px-2 py-1 rounded bg-goldAccent/20 text-goldAccent text-[9px] font-bold">شێعر</button>
+                            <a href="https://youtu.be/pSHSKcIo-Wo?si=V3C0NdtO5Sp3X6Xj" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
                         </div>
                     </div>
 
                     <!-- Sultan -->
                     <div class="bg-cardBg rounded-xl p-3 luxury-card flex items-center justify-between text-xs">
-                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">سۆڵتانی دڵی من</span></div>
+                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">سوڵتان</span></div>
                         <div class="flex gap-1.5">
-                            <button onclick="openLyrics('سۆڵتانی دڵی من', `تەقەلای دنیام دا بۆ گەیشتن بە تۆ\nمەینەتی دنیام چێشت بۆ باوەشی تۆ\nباوەشی تۆ بوو بە ماڵی هەتا هەتایی\nفەرمووە وەرە قوربان نەکەین باسی جودایی\n\nتۆی سۆڵتانی دڵی من`)" class="px-2 py-1 rounded bg-goldAccent/20 text-goldAccent text-[9px] font-bold">شێعر</button>
-                            <a href="https://youtu.be/FQMRCtx24qE" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Dyan Talla -->
-                    <div class="bg-cardBg rounded-xl p-3 luxury-card flex items-center justify-between text-xs">
-                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">دیان تەڵا (Dyan Talla)</span></div>
-                        <div class="flex gap-1.5">
-                            <button onclick="openLyrics('دیان تەڵا', `ئەرێ هەر عانێ کریو وەی تاسەو باڵاو تۆ\nئەرێ رەنجۆ چەن ساڵەم وەێ مەدی وە فیرۆ\nگۆل وە گۆل چنوری بەرزەلەی شارە زوری...\n\nکڵا کڵا کڵا سۆخمە لار دیان تەڵا!`)" class="px-2 py-1 rounded bg-goldAccent/20 text-goldAccent text-[9px] font-bold">شێعر</button>
-                            <a href="https://youtu.be/6Yv-9z8Lnn0" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
+                            <button onclick="openLyrics('سۆڵتانی دڵی من', `تەقەلای دنیام دا بۆ گەیشتن بە تۆ\nمەینەتی دنیام چێشت بۆ باوەشی تۆ\nباوەشی تۆ بوو بە ماڵی هەتا هەتایی\nفەرمووە وەرە قوربان نەکەین باسی جودایی\nهانی بە دەستی من,\nنیشانی بکە خۆت بۆ من\nهەتا ئەو ڕۆژی ماوم\nتۆی سۆڵتانی دڵی من\nئەو بەردانەی خستیانە سەر ڕێگامان کردمانە\nماڵ بۆ ژیانمان، مؤم بۆ ژی ژوانمان`)" class="px-2 py-1 rounded bg-goldAccent/20 text-goldAccent text-[9px] font-bold">شێعر</button>
+                            <a href="https://youtu.be/q9f76Fw0gF4?si=F0gQasIa9gP4obql" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
                         </div>
                     </div>
 
                     <!-- Cuple Taza -->
                     <div class="bg-cardBg rounded-xl p-3 luxury-card flex items-center justify-between text-xs">
-                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">ڕۆی بۆ لای کەپڵی تازە</span></div>
+                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">کەپڵی تازە</span></div>
                         <div class="flex gap-1.5">
-                            <button onclick="openLyrics('ڕۆی بۆ لای کەپڵی تازە', `ڕۆی بۆ لای کەپڵی تازە\nمن مامەوە...\nمن مامەوە بێ کەپڵ و یار\nمن ماڵئاواییە\n\nجا حەیران بۆ ئێستا خاسە\nمن ماڵئاواییە!`)" class="px-2 py-1 rounded bg-goldAccent/20 text-goldAccent text-[9px] font-bold">شێعر</button>
-                            <a href="https://youtu.be/5j3s87yimXM" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
+                            <button onclick="openLyrics('ڕۆی بۆ لای کەپڵی تازە', `ڕۆی بۆ لای کەپڵی تازە\nمن مامەوە...\nمن مامەوە بێ کەپڵ و یار\nمن ماڵئاواییە\nڕۆی بۆ لای کەپڵی تازە\nمن مامەوە...\nجا حەیران بۆ ئێستا خاسە\nمن ماڵئاواییە!\nرازی نەمبوو، ئاشتی نەمکەردوو,\nبە کام تاوان و ئینە بەشمەبوو?\nمانییابوو، شەکەەت، خەستە، لەش مابوو...\nهەوای بان و بان، خڕ بە لەرزانە\nداوی لە کەللەم، خڕ بە لەرزانە\nشانی دە شانێ، لە شانانم دە...\nهەر وەک چۆپی لە چۆپی، بەخش و پەرێشانم کە!`)" class="px-2 py-1 rounded bg-goldAccent/20 text-goldAccent text-[9px] font-bold">شێعر</button>
+                            <a href="https://youtu.be/eJ8_tj0KUAQ?si=5oP5BQlvsoHIbxQF" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
                         </div>
                     </div>
 
+                    <!-- Xray Mexak -->
+                    <div class="bg-cardBg rounded-xl p-3 luxury-card flex items-center justify-between text-xs">
+                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">خڕەی مێخەک</span></div>
+                        <div class="flex gap-1.5">
+                            <button onclick="openLyrics('خڕەی مێخەک (Xray Mexak)', `دەنگا دەنگ دەنگی دێ\nخڕەی مێخەک بەنی دێ\nلارو لەنجەی وا دیارە\nئەو گۆڵە مەیلی جەنگی دێ\nئای هورزە با بلمێ وەی بەئەو کەژ و کێوە...\nکورە پا بنین وە بان وەی چنوور و لوە...\nگڕی دە... دەی دەی دەی... ئاها...\nئای گەردی گەردی گەردی بڕوا بۆ لای مل زەردی...\nخۆزگا هەفتەو دوو ڕۆژێ لەبەر ماڵیان ئەمردی...\nکەۆمل کەۆمل کەۆانی فاتمە و گەوهەر چەن جوانی...\nدەردێکت داگە بە من جا خۆ بۆ خۆت نازانی...\nکاکە دەچمە بەردە ڕەش خۆم هەڵ ئەدێرم...\nئەگەر دەنگم نەگاتێ نامە ئەنێرم...\nیالللللللا...`)" class="px-2 py-1 rounded bg-goldAccent/20 text-goldAccent text-[9px] font-bold">شێعر</button>
+                            <a href="https://youtu.be/-rCXuvioFSg?si=gadH7ZMQbesKY_81" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Dyan Talla -->
+                    <div class="bg-cardBg rounded-xl p-3 luxury-card flex items-center justify-between text-xs">
+                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">دیان تەڵا</span></div>
+                        <div class="flex gap-1.5">
+                            <button onclick="openLyrics('دیان تەڵا', `ئەرێ هەر عانێ کریو وەی تاسەو باڵاو تۆ\nئەرێ رەنجۆ چەن ساڵەم وەێ مەدی وە فیرۆ\nگۆل وە گۆل چنوری بەرزەلەی شارە زوری\nدەی بەینو بەینە اللە گەردەن وێنەی بلوری....\nگوڵ دڵ ئەسیری تۆم برا شای وەفاداران\nدەی بە ئەو باوا شیخەو وەی ماڵ لە بێساران\nگۆل وە گۆل چنوری بەرزەلەی شارە زوری\nدەی بەینو بەینە اللە گەردەن وێنەی بلوری....\nکەڵا کەڵا کەڵا سۆخمە لار دیان تەڵا!\nحەیرانی باڵات بم...\nرەبی بە کلامُ اڵلە، رەبی بە رەسولُ اڵلە....\nوەیە وەیە وەیە بەزمەکەی خۆم و خۆیە!\nمیوانی ماڵت بم...\nدیان تەڵاکەت لە کوێە؟`)" class="px-2 py-1 rounded bg-goldAccent/20 text-goldAccent text-[9px] font-bold">شێعر</button>
+                            <a href="https://youtu.be/_tXVtcJafvw?si=911iPxYDwwNdwwUI" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Albums Section -->
+            <div class="space-y-3 pt-4">
+                <h3 class="text-[11px] font-en font-semibold tracking-wider text-goldAccent uppercase">ALBUMS</h3>
+                <div class="grid sm:grid-cols-2 gap-3">
+                    <div class="bg-cardBg rounded-xl p-4 luxury-card flex items-center justify-between">
+                        <div class="flex items-center gap-2.5">
+                            <div class="equalizer"><span></span><span></span><span></span></div>
+                            <div><h4 class="text-xs font-semibold text-white font-en">ماڵی دونیا</h4><span class="text-[10px] text-goldAccent font-en">2014 Album</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-cardBg rounded-xl p-4 luxury-card flex items-center justify-between">
+                        <div class="flex items-center gap-2.5">
+                            <div class="equalizer"><span></span><span></span><span></span></div>
+                            <div><h4 class="text-xs font-semibold text-white font-en">زرمە</h4><span class="text-[10px] text-goldAccent font-en">2015 Album</span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -410,7 +415,6 @@
                 <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader">گەلەری وێنەکان</h2>
                 <div class="w-10 h-0.5 bg-goldAccent/50 mx-auto mt-2"></div>
             </div>
-
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
                 <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400">وێنەی ١</div>
                 <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400">وێنەی ٢</div>
@@ -427,12 +431,10 @@
 
         <!-- ================= 5. VIDEOS PAGE ================= -->
         <section id="view-videos" class="page-view max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
-            <div class="text-center mb-6 space-y-2">
-                <span class="font-en text-[10px] font-semibold tracking-[0.25em] text-goldAccent uppercase">VIDEOS (5 CLIPS)</span>
+            <div class="text-center space-y-2">
                 <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader">ڤیدیۆ کلیپەکان</h2>
                 <div class="w-10 h-0.5 bg-goldAccent/50 mx-auto mt-2"></div>
             </div>
-
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div class="bg-cardBg rounded-2xl p-4 luxury-card space-y-3 text-center">
                     <div class="aspect-video rounded-xl overflow-hidden bg-darkBg border border-white/10 relative group">
@@ -442,94 +444,29 @@
                     <h3 class="text-xs font-semibold text-white">Komsay - Music Video 1</h3>
                     <a href="https://youtu.be/6Yv-9z8Lnn0" target="_blank" class="inline-block px-4 py-1.5 rounded-full bg-red-600 text-white font-en text-[10px] font-semibold uppercase">Watch on YouTube</a>
                 </div>
-                <div class="bg-cardBg rounded-2xl p-4 luxury-card space-y-3 text-center">
-                    <div class="aspect-video rounded-xl overflow-hidden bg-darkBg border border-white/10 relative group">
-                        <img src="https://img.youtube.com/vi/5j3s87yimXM/hqdefault.jpg" alt="Video 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <a href="https://youtu.be/5j3s87yimXM" target="_blank" class="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-3xl"><i class="fa-solid fa-circle-play text-red-600 bg-white rounded-full"></i></a>
-                    </div>
-                    <h3 class="text-xs font-semibold text-white">Komsay - Music Video 2</h3>
-                    <a href="https://youtu.be/5j3s87yimXM" target="_blank" class="inline-block px-4 py-1.5 rounded-full bg-red-600 text-white font-en text-[10px] font-semibold uppercase">Watch on YouTube</a>
-                </div>
-                <div class="bg-cardBg rounded-2xl p-4 luxury-card space-y-3 text-center">
-                    <div class="aspect-video rounded-xl overflow-hidden bg-darkBg border border-white/10 relative group">
-                        <img src="https://img.youtube.com/vi/pSHSKcIo-Wo/hqdefault.jpg" alt="Video 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <a href="https://youtu.be/pSHSKcIo-Wo" target="_blank" class="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-3xl"><i class="fa-solid fa-circle-play text-red-600 bg-white rounded-full"></i></a>
-                    </div>
-                    <h3 class="text-xs font-semibold text-white">Komsay - Music Video 3</h3>
-                    <a href="https://youtu.be/pSHSKcIo-Wo" target="_blank" class="inline-block px-4 py-1.5 rounded-full bg-red-600 text-white font-en text-[10px] font-semibold uppercase">Watch on YouTube</a>
-                </div>
-                <div class="bg-cardBg rounded-2xl p-4 luxury-card space-y-3 text-center">
-                    <div class="aspect-video rounded-xl overflow-hidden bg-darkBg border border-white/10 relative group">
-                        <img src="https://img.youtube.com/vi/FQMRCtx24qE/hqdefault.jpg" alt="Video 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <a href="https://youtu.be/FQMRCtx24qE" target="_blank" class="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-3xl"><i class="fa-solid fa-circle-play text-red-600 bg-white rounded-full"></i></a>
-                    </div>
-                    <h3 class="text-xs font-semibold text-white">Komsay - Music Video 4</h3>
-                    <a href="https://youtu.be/FQMRCtx24qE" target="_blank" class="inline-block px-4 py-1.5 rounded-full bg-red-600 text-white font-en text-[10px] font-semibold uppercase">Watch on YouTube</a>
-                </div>
-                <div class="bg-cardBg rounded-2xl p-4 luxury-card space-y-3 text-center">
-                    <div class="aspect-video rounded-xl overflow-hidden bg-darkBg border border-white/10 relative group">
-                        <img src="https://img.youtube.com/vi/KQRhnDrvUDM/hqdefault.jpg" alt="Video 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <a href="https://youtu.be/KQRhnDrvUDM" target="_blank" class="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-3xl"><i class="fa-solid fa-circle-play text-red-600 bg-white rounded-full"></i></a>
-                    </div>
-                    <h3 class="text-xs font-semibold text-white">Komsay - Music Video 5</h3>
-                    <a href="https://youtu.be/KQRhnDrvUDM" target="_blank" class="inline-block px-4 py-1.5 rounded-full bg-red-600 text-white font-en text-[10px] font-semibold uppercase">Watch on YouTube</a>
-                </div>
             </div>
         </section>
 
         <!-- ================= 6. NEWS PAGE ================= -->
         <section id="view-news" class="page-view max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
             <div class="text-center space-y-2">
-                <span class="font-en text-[10px] font-semibold tracking-[0.25em] text-goldAccent uppercase">NEWS & TV INTERVIEWS</span>
                 <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader">هەواڵ و چاوپێکەوتنەکان</h2>
                 <div class="w-10 h-0.5 bg-goldAccent/50 mx-auto mt-2"></div>
             </div>
-
-            <div class="bg-cardBg rounded-xl p-4 luxury-card space-y-3">
-                <div class="flex justify-between items-center text-[10px] text-goldAccent font-en"><span>LIVE STREAM / TV INTERVIEW</span> <span>YouTube Live</span></div>
-                <h4 class="text-sm font-bold text-white">چاوپێکەوتنی ڕاستەوخۆ و تایبەتی کۆمسای</h4>
-                <div class="aspect-video rounded-xl overflow-hidden bg-darkBg border border-white/10 relative group">
-                    <img src="https://img.youtube.com/vi/FpmcjjNT8dw/hqdefault.jpg" alt="Live Interview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.onerror=null; this.src='https://img.youtube.com/vi/6Yv-9z8Lnn0/hqdefault.jpg';">
-                    <a href="https://www.youtube.com/live/FpmcjjNT8dw?si=e_j-8lsBqY8uR8tv" target="_blank" class="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-4xl"><i class="fa-solid fa-circle-play text-red-600 bg-white rounded-full"></i></a>
-                </div>
-                <div><a href="https://www.youtube.com/live/FpmcjjNT8dw?si=e_j-8lsBqY8uR8tv" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-red-600 text-white font-en text-[10px] font-semibold uppercase shadow-md"><i class="fa-brands fa-youtube"></i> WATCH INTERVIEW ON YOUTUBE</a></div>
-            </div>
-
             <div class="bg-cardBg rounded-xl p-4 luxury-card space-y-2 text-xs">
-                <span class="text-[9px] font-en uppercase tracking-widest text-goldAccent font-semibold block">FEATURED RELEASE • 2024</span>
                 <h3 class="text-sm font-semibold text-white">WTT / ووت</h3>
-                <p class="text-gray-300 font-light leading-relaxed">لە ڕێگەی دەنگ و مێلۆدییەکانییەوە، چیرۆکی ناخی خۆی بۆ هەوادارانی دەگێڕێتەوە؛ لە نوێترین بەرهەمی (وتت - ٢٠٢٤) کە وشە بە وشە و نۆت بە نۆتی هەڵقوڵاوی قووڵایی هەست و ناخی خۆیەتی.</p>
-            </div>
-
-            <div class="bg-cardBg rounded-xl p-4 luxury-card space-y-2 text-xs border-goldAccent/40">
-                <span class="text-[9px] font-en uppercase tracking-widest text-goldAccent font-semibold block">⚠️ COPYRIGHT NOTICE / مافی لەبەرگرتنەوە</span>
-                <h3 class="text-sm font-semibold text-white">کێشەی مافی لەبەرگرتنەوەی ئەلبوومەکان</h3>
-                <p class="text-gray-300 font-light leading-relaxed">کۆمسای لە ساڵی ٢٠١٤ بە ئەلبۆمی (ماڵی دونیا) دەستی بە کاروانی هونەری کرد کە تێکەڵەیەک بوو لە موزیکی میللی کوردی و موزیکی مۆدێرن و سەرکەوتنێکی باشی بەدەستهێنا، بەڵام هەردوو ئەلبۆمەکە تووشی کۆپیکردن و بڵاوکردنەوەی نایاسایی بوون و هیچ قازانجێکی دارایی لێ وەرنەگرت.</p>
+                <p class="text-gray-300 font-light leading-relaxed">لە ڕێگەی دەنگ و مێلۆدییەکانییەوە، چیرۆکی ناخی خۆی بۆ هەوادارانی دەگێڕێتەوە.</p>
             </div>
         </section>
 
         <!-- ================= 7. CONTACT PAGE ================= -->
         <section id="view-contact" class="page-view max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
             <div class="text-center space-y-2">
-                <span class="font-en text-[10px] font-semibold tracking-[0.25em] text-goldAccent uppercase">CONTACT & SOCIALS</span>
-                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader">پەیوەندی و تۆڕە کۆمەڵایەتییەکان</h2>
+                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader">پەیوەندی</h2>
                 <div class="w-10 h-0.5 bg-goldAccent/50 mx-auto mt-2"></div>
             </div>
-
             <div class="bg-cardBg rounded-xl p-4 luxury-card text-center space-y-1.5 text-xs">
-                <span class="text-[9px] font-en uppercase tracking-widest text-gray-400 block font-semibold">MANAGEMENT EMAIL</span>
                 <a href="mailto:komsayagent@gmail.com" class="text-goldAccent font-en font-semibold hover:underline block">komsayagent@gmail.com</a>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                <a href="https://www.instagram.com/komsay/" target="_blank" class="bg-cardBg p-3 rounded-xl luxury-card text-center space-y-1 block"><i class="fa-brands fa-instagram text-lg text-pink-500"></i><span class="text-[10px] font-en font-semibold text-white block">Instagram</span></a>
-                <a href="https://youtube.com/@komsay" target="_blank" class="bg-cardBg p-3 rounded-xl luxury-card text-center space-y-1 block"><i class="fa-brands fa-youtube text-lg text-red-500"></i><span class="text-[10px] font-en font-semibold text-white block">YouTube</span></a>
-                <a href="https://www.tiktok.com/@komsay" target="_blank" class="bg-cardBg p-3 rounded-xl luxury-card text-center space-y-1 block"><i class="fa-brands fa-tiktok text-lg text-cyan-400"></i><span class="text-[10px] font-en font-semibold text-white block">TikTok</span></a>
-                <a href="https://www.threads.com/@komsay" target="_blank" class="bg-cardBg p-3 rounded-xl luxury-card text-center space-y-1 block"><i class="fa-brands fa-threads text-lg text-white"></i><span class="text-[10px] font-en font-semibold text-white block">Threads</span></a>
-                <a href="http://twitter.com/komsay" target="_blank" class="bg-cardBg p-3 rounded-xl luxury-card text-center space-y-1 block"><i class="fa-brands fa-x-twitter text-lg text-gray-200"></i><span class="text-[10px] font-en font-semibold text-white block">X / Twitter</span></a>
-                <a href="https://www.facebook.com/Komsay" target="_blank" class="bg-cardBg p-3 rounded-xl luxury-card text-center space-y-1 block"><i class="fa-brands fa-facebook text-lg text-blue-500"></i><span class="text-[10px] font-en font-semibold text-white block">Facebook</span></a>
-                <a href="https://snapchat.com/t/J3TUY6pE" target="_blank" class="bg-cardBg p-3 rounded-xl luxury-card text-center space-y-1 block"><i class="fa-brands fa-snapchat text-lg text-yellow-400"></i><span class="text-[10px] font-en font-semibold text-white block">Snapchat</span></a>
-                <a href="https://t.me/Komsay" target="_blank" class="bg-cardBg p-3 rounded-xl luxury-card text-center space-y-1 block"><i class="fa-brands fa-telegram text-lg text-blue-400"></i><span class="text-[10px] font-en font-semibold text-white block">Telegram</span></a>
             </div>
         </section>
 
@@ -556,7 +493,7 @@
             </div>
             <div>
                 <span id="nowPlayingText" class="text-[11px] text-goldAccent font-bold block">WTT / ووت (Official Audio)</span>
-                <span class="text-[9px] text-gray-400">Komsay - Apple Music Stream</span>
+                <span class="text-[9px] text-gray-400">Komsay - Official Track</span>
             </div>
         </div>
         <div class="flex items-center gap-3">
@@ -566,9 +503,9 @@
         </div>
     </div>
 
-    <!-- HTML5 Audio Stream for WTT -->
+    <!-- GITHUB AUDIO ELEMENT -->
     <audio id="audioPlayer" preload="none" loop>
-        <source src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/37/bc/49/37bc4906-814c-1d0e-26ea-85b190f845be/mzaf_11306322300063259838.plus.aac.p.m4a" type="audio/mp4">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
     <!-- FOOTER -->
@@ -661,4 +598,3 @@
 </body>
 </html>
 
-```
