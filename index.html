@@ -182,14 +182,32 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Lightbox modal for image zooming & downloading */
+        #lightboxModal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(12px);
+            z-index: 4000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        #lightboxModal.active {
+            display: flex;
+        }
     </style>
 </head>
 <body class="selection:bg-goldAccent selection:text-black min-h-screen flex flex-col justify-between relative">
 
-    <!-- WELCOME MODAL / SPLASH SCREEN -->
+    <!-- WELCOME MODAL / SPLASH SCREEN WITH LOGO ICON -->
     <div id="welcomeModal">
         <div class="luxury-card rounded-3xl p-8 max-w-md w-full text-center space-y-6 shadow-2xl border border-goldAccent/40">
-            <div class="w-16 h-16 mx-auto rounded-full bg-goldAccent/10 border border-goldAccent/40 flex items-center justify-center text-goldAccent text-2xl font-serifHeader">K</div>
+            <div class="w-16 h-16 mx-auto rounded-full bg-goldAccent/10 border border-goldAccent/40 flex items-center justify-center text-goldAccent text-2xl shadow-inner">
+                <i class="fa-solid fa-crown text-goldAccent"></i>
+            </div>
             <div class="space-y-1">
                 <h2 class="font-serifHeader text-2xl font-bold tracking-wider text-white">KOMSAY PORTAL</h2>
                 <p class="text-xs text-gray-400">تکایە زمانەکەت هەڵبژێرە • Please select your language</p>
@@ -199,6 +217,17 @@
                 <button onclick="setLanguage('en')" class="py-2.5 px-3 rounded-xl bg-cardBg border border-goldAccent/30 text-goldAccent text-xs font-bold hover:bg-goldAccent hover:text-black transition-all">English</button>
                 <button onclick="setLanguage('fa')" class="py-2.5 px-3 rounded-xl bg-cardBg border border-goldAccent/30 text-goldAccent text-xs font-bold hover:bg-goldAccent hover:text-black transition-all">فارسی</button>
             </div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX MODAL FOR IMAGE ZOOM & DOWNLOAD -->
+    <div id="lightboxModal" onclick="closeLightbox()">
+        <div class="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center justify-center p-2" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute -top-10 right-0 text-white hover:text-goldAccent text-2xl px-3 py-1 cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+            <img id="lightboxImg" src="" alt="Zoomed Image" class="max-w-full max-h-[75vh] object-contain rounded-xl border border-goldAccent/40 shadow-2xl mb-4">
+            <a id="lightboxDownloadBtn" href="" download="komsay-image.jpg" class="px-6 py-2.5 rounded-full gold-button text-xs font-bold uppercase flex items-center gap-2">
+                <i class="fa-solid fa-download"></i> <span data-i18n="download_text">دابەزاندنی وێنە (Download)</span>
+            </a>
         </div>
     </div>
 
@@ -213,8 +242,8 @@
     <header>
         <div class="island-nav rounded-full px-4 py-2 flex items-center justify-between gap-3">
             <a href="#home" onclick="showPage('home', event)" class="flex items-center gap-2 flex-shrink-0">
-                <div class="w-7 h-7 rounded-full overflow-hidden border border-goldAccent/50 bg-cardBg flex items-center justify-center">
-                    <span class="font-serifHeader text-xs font-bold text-goldAccent">K</span>
+                <div class="w-7 h-7 rounded-full overflow-hidden border border-goldAccent/50 bg-cardBg flex items-center justify-center text-goldAccent shadow-inner">
+                    <i class="fa-solid fa-crown text-[11px]"></i>
                 </div>
                 <span class="font-serifHeader text-sm font-bold tracking-[0.15em] text-white hidden sm:inline">KOMSAY</span>
             </a>
@@ -242,24 +271,63 @@
     <main class="flex-grow pt-28 pb-16 relative z-10">
 
         <!-- ================= 1. HOME PAGE ================= -->
-        <section id="view-home" class="page-view active max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            <div class="pt-6 sm:pt-8 grid lg:grid-cols-12 gap-8 items-center">
-                <div class="lg:col-span-7 space-y-4 text-center lg:text-right">
-                    <span class="text-[10px] font-en uppercase tracking-[0.3em] text-goldAccent font-semibold block" data-i18n="hero_subtitle">KURDISH SINGER</span>
-                    <h1 class="font-serifHeader text-4xl sm:text-5xl lg:text-6xl font-bold tracking-wide text-white uppercase leading-tight drop-shadow-md">KOMSAY</h1>
-                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed max-w-lg mx-auto lg:mx-0 font-light" data-i18n="hero_quote">پێشەنگی مۆسیقای کوردی و نوێگەری لە جیهانی دەنگ و هونەردا.</p>
-                    <div class="pt-2 flex flex-wrap gap-3 justify-center lg:justify-start">
-                        <a href="#music" onclick="showPage('music', event)" class="px-6 py-2.5 rounded-full gold-button text-[11px] font-en font-semibold tracking-wider uppercase flex items-center gap-2">
-                            <span data-i18n="btn_listen">LISTEN NOW</span> <i class="fa-solid fa-play text-[9px]"></i>
-                        </a>
-                        <a href="#biography" onclick="showPage('biography', event)" class="px-6 py-2.5 rounded-full border border-goldAccent/40 hover:border-goldAccent text-gray-200 text-[11px] font-en font-medium tracking-wider uppercase transition-all shadow-md" data-i18n="btn_bio">
-                            <span>BIOGRAPHY</span>
-                        </a>
-                    </div>
+        <section id="view-home" class="page-view active max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="pt-4 text-center space-y-4">
+                <span class="text-[10px] font-en uppercase tracking-[0.3em] text-goldAccent font-semibold block" data-i18n="hero_subtitle">KURDISH SINGER</span>
+                <h1 class="font-serifHeader text-4xl sm:text-5xl font-bold tracking-wide text-white uppercase leading-tight drop-shadow-md">KOMSAY</h1>
+                <p class="text-gray-300 text-sm sm:text-base leading-relaxed max-w-lg mx-auto font-light" data-i18n="hero_quote">پێشەنگی مۆسیقای کوردی و نوێگەری لە جیهانی دەنگ و هونەردا.</p>
+                <div class="pt-2 flex flex-wrap gap-3 justify-center">
+                    <a href="#music" onclick="showPage('music', event)" class="px-6 py-2.5 rounded-full gold-button text-[11px] font-en font-semibold tracking-wider uppercase flex items-center gap-2">
+                        <span data-i18n="btn_listen">LISTEN NOW</span> <i class="fa-solid fa-play text-[9px]"></i>
+                    </a>
+                    <a href="#biography" onclick="showPage('biography', event)" class="px-6 py-2.5 rounded-full border border-goldAccent/40 hover:border-goldAccent text-gray-200 text-[11px] font-en font-medium tracking-wider uppercase transition-all shadow-md" data-i18n="btn_bio">
+                        <span>BIOGRAPHY</span>
+                    </a>
                 </div>
-                <div class="lg:col-span-5 flex justify-center">
-                    <div class="w-full max-w-xs sm:max-w-sm aspect-[3/4] rounded-2xl overflow-hidden bg-cardBg luxury-card relative">
-                        <img id="heroImage" src="assets/images/hero.jpg" alt="KOMSAY" class="w-full h-full object-cover filter contrast-110" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'400\' viewBox=\'0 0 300 400\'><rect width=\'100%\' height=\'100%\' fill=\'%2313110f\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-family=\'Cormorant Garamond\' font-size=\'22\'>KOMSAY</text></svg>';">
+            </div>
+
+            <!-- Landscape / Horizontal Hero Image with Click-to-Zoom -->
+            <div class="w-full aspect-[16/9] rounded-2xl overflow-hidden bg-cardBg luxury-card relative cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
+                <img id="heroImage" src="assets/images/hero.jpg" alt="KOMSAY" class="w-full h-full object-cover filter contrast-110 hover:scale-105 transition-transform duration-500" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'450\' viewBox=\'0 0 800 450\'><rect width=\'100%\' height=\'100%\' fill=\'%2313110f\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-family=\'Cormorant Garamond\' font-size=\'26\'>KOMSAY LANDSCAPE PORTRAIT (Click to Zoom)</text></svg>';">
+            </div>
+
+            <!-- Personal Identity Summary Table (As Requested) -->
+            <div class="bg-cardBg rounded-2xl p-6 luxury-card space-y-4 border-goldAccent/40 text-xs sm:text-sm">
+                <div class="flex items-center gap-2 text-goldAccent font-serifHeader text-base font-bold border-b border-goldAccent/20 pb-3">
+                    <i class="fa-solid fa-id-card text-xs"></i> <span data-i18n="home_summary_title">ناسنامەی کەسی و کاروانی هونەری</span>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-3">
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-gray-400" data-i18n="lbl_name">ناو:</span>
+                        <span class="font-bold text-white">کۆمسای (Komsay)</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-gray-400" data-i18n="lbl_place">شوێن:</span>
+                        <span class="font-bold text-white" data-i18n="val_place">سنە، ڕۆژهەڵاتی کوردستان</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-gray-400" data-i18n="lbl_job">پیشە:</span>
+                        <span class="font-bold text-white" data-i18n="val_job">گۆرانیبێژ و مۆسیقاژەن</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-gray-400" data-i18n="lbl_birth">رۆژی لەدایکبوون:</span>
+                        <span class="font-bold text-white">١٤ / ٨</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-gray-400" data-i18n="lbl_award">خەڵات:</span>
+                        <span class="font-bold text-white" data-i18n="val_award">٢٠١٥ باشترین هونەرمەندی ئافرەتی ساڵ</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-gray-400" data-i18n="lbl_albums">ئەلبۆم:</span>
+                        <span class="font-bold text-white">٢ ئەلبۆم</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-gray-400" data-i18n="lbl_tracks">بەرهەم:</span>
+                        <span class="font-bold text-white">٢٧+ گۆرانی</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-gray-400" data-i18n="lbl_debut">یەکەم دەرکەوتن:</span>
+                        <span class="font-bold text-white">٢٠١٣</span>
                     </div>
                 </div>
             </div>
@@ -288,19 +356,19 @@
             </div>
 
             <div class="space-y-4 text-xs sm:text-sm leading-relaxed">
-                <!-- 3 Childhood Photos Grid inside Biography -->
+                <!-- 3 Childhood Photos Grid inside Biography with Click-to-Zoom -->
                 <div class="bg-cardBg rounded-2xl p-5 luxury-card space-y-3">
                     <div class="flex items-center gap-2 text-goldAccent font-serifHeader text-base font-bold">
                         <i class="fa-solid fa-camera-retro text-xs"></i> <span data-i18n="bio_childhood_title">وێنەی منداڵی و سەرەتای ژیان</span>
                     </div>
                     <div class="grid grid-cols-3 gap-3">
-                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-darkBg border border-goldAccent/25">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-darkBg border border-goldAccent/25 cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
                             <img src="assets/images/childhood-1.jpg" alt="Childhood 1" class="w-full h-full object-cover filter contrast-110 hover:scale-105 transition-transform duration-500" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\' viewBox=\'0 0 150 100\'><rect width=\'100%\' height=\'100%\' fill=\'%23080706\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-size=\'10\' font-family=\'Cormorant Garamond\'>منداڵی • ١</text></svg>';">
                         </div>
-                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-darkBg border border-goldAccent/25">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-darkBg border border-goldAccent/25 cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
                             <img src="assets/images/childhood-2.jpg" alt="Childhood 2" class="w-full h-full object-cover filter contrast-110 hover:scale-105 transition-transform duration-500" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\' viewBox=\'0 0 150 100\'><rect width=\'100%\' height=\'100%\' fill=\'%23080706\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-size=\'10\' font-family=\'Cormorant Garamond\'>منداڵی • ٢</text></svg>';">
                         </div>
-                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-darkBg border border-goldAccent/25">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-darkBg border border-goldAccent/25 cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
                             <img src="assets/images/childhood-3.jpg" alt="Childhood 3" class="w-full h-full object-cover filter contrast-110 hover:scale-105 transition-transform duration-500" onError="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'100\' viewBox=\'0 0 150 100\'><rect width=\'100%\' height=\'100%\' fill=\'%23080706\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23d4af37\' font-size=\'10\' font-family=\'Cormorant Garamond\'>منداڵی • ٣</text></svg>';">
                         </div>
                     </div>
@@ -537,16 +605,46 @@
                 <div class="w-10 h-0.5 bg-goldAccent/50 mx-auto mt-2"></div>
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_1">وێنەی ١</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_2">وێنەی ٢</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_3">وێنەی ٣</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_4">وێنەی ٤</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_5">وێنەی ٥</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_6">وێنەی ٦</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_7">وێنەی ٧</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_8">وێنەی ٨</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_9">وێنەی ٩</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_10">وێنەی ١٠</div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=600')">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=300" alt="Gallery 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.style.display='none'">
+                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_1">وێنەی ١</span>
+                </div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600')">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=300" alt="Gallery 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.style.display='none'">
+                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_2">وێنەی ٢</span>
+                </div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=600')">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=300" alt="Gallery 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.style.display='none'">
+                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_3">وێنەی ٣</span>
+                </div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=600')">
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=300" alt="Gallery 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.style.display='none'">
+                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_4">وێنەی ٤</span>
+                </div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=600')">
+                    <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=300" alt="Gallery 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.style.display='none'">
+                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_5">وێنەی ٥</span>
+                </div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=600')">
+                    <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=300" alt="Gallery 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.style.display='none'">
+                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_6">وێنەی ٦</span>
+                </div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('https://images.unsplash.com/photo-1526478806334-5fd488fcaabc?q=80&w=600')">
+                    <img src="https://images.unsplash.com/photo-1526478806334-5fd488fcaabc?q=80&w=300" alt="Gallery 7" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.style.display='none'">
+                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_7">وێنەی ٧</span>
+                </div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=600')">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=300" alt="Gallery 8" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.style.display='none'">
+                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_8">وێنەی ٨</span>
+                </div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600')">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=300" alt="Gallery 9" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.style.display='none'">
+                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_9">وێنەی ٩</span>
+                </div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=600')">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=300" alt="Gallery 10" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.style.display='none'">
+                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_10">وێنەی ١٠</span>
+                </div>
             </div>
         </section>
 
@@ -786,6 +884,7 @@
                 hero_subtitle: "KURDISH SINGER", hero_quote: "پێشەنگی مۆسیقای کوردی و نوێگەری لە جیهانی دەنگ و هونەردا.",
                 btn_listen: "گوێگرتن", btn_bio: "ژیاننامە", explore_title: "✨ دۆزینەوەی کۆمسای ✨",
                 card_music: "مۆسیقا 🎵", card_videos: "ڤیدیۆکان 🎬", card_gallery: "گەلەری 📷", card_bio: "ژیاننامە 🌟", card_news: "هەواڵەکان 📰", card_contact: "پەیوەندی ✉️",
+                home_summary_title: "ناسنامەی کەسی", lbl_name: "ناو:", lbl_place: "شوێن:", val_place: "سنە، ڕۆژهەڵاتی کوردستان", lbl_job: "پیشە:", val_job: "گۆرانیبێژ", lbl_birth: "رۆژی لەدایکبوون:", lbl_award: "خەڵات:", val_award: "٢٠١٥ باشترین هونەرمەندی ئافرەتی ساڵ", lbl_albums: "ئەلبۆم:", lbl_tracks: "بەرهەم:", lbl_debut: "یەکەم دەرکەوتن:", download_text: "دابەزاندنی وێنە (Download)",
                 bio_subtitle: "OFFICIAL BIOGRAPHY", bio_main_title: "ژیاننامەی کۆمسای", bio_childhood_title: "وێنەی منداڵی و سەرەتای ژیان",
                 bio_p1_title: "سەرەتای ژیان و فێربوونی مۆسیقا", bio_p1_text: "کۆمسای لە شاری سنەی ڕۆژهەڵاتی کوردستان لەدایکبووە. ئەو لە تەمەنی شەش ساڵییەوە دەستی بە فێربوونی مۆسیقا کردووە و لەگەڵ گەورەبوونیدا بەردەوام پەرەی بە بەهرەکانی داوە.",
                 bio_p2_title: "ئامێرەکان و سەرکەوتنی هونەری", bio_p2_text: "کۆمسای ژەنەری ئامێرەکانی کەمانچە و سازە و دواتر ڕێڕەوی هونەریی خۆی بەرەو گۆرانیوتن بردووە. یەکەم دەرکەوتنی فەرمیی لە ساڵی ٢٠١٣ لە بەرنامەی 'خۆشترین دەنگ' بوو. ئەو وەک یەکەم هونەرمەندی کورد لە ستایلی 'ترانس' و 'هاوس' ناسراوە و بە 'شاژنی دەنگی خەمناک' لە کوردستان ناوبانگی دەرکردووە، هەروەها لە ساڵی ٢٠١٥ وەک باشترین خانمە هونەرمەندی کورد لە کوردستان هەڵبژێردراوە.",
@@ -811,9 +910,10 @@
                 hero_subtitle: "KURDISH SINGER", hero_quote: "Pioneer of Kurdish music and innovation in the world of voice and art.",
                 btn_listen: "LISTEN NOW", btn_bio: "BIOGRAPHY", explore_title: "✨ EXPLORE KOMSAY ✨",
                 card_music: "Music 🎵", card_videos: "Videos 🎬", card_gallery: "Gallery 📷", card_bio: "Biography 🌟", card_news: "News 📰", card_contact: "Contact ✉️",
+                home_summary_title: "Personal Identity", lbl_name: "Name:", lbl_place: "Place:", val_place: "Sanandaj, East Kurdistan", lbl_job: "Profession:", val_job: "Singer", lbl_birth: "Birth Date:", lbl_award: "Award:", val_award: "2015 Best Female Artist", lbl_albums: "Albums:", lbl_tracks: "Tracks:", lbl_debut: "Debut:", download_text: "Download Image",
                 bio_subtitle: "OFFICIAL BIOGRAPHY", bio_main_title: "KOMSAY BIOGRAPHY", bio_childhood_title: "Childhood Photos & Early Life",
                 bio_p1_title: "Early Life and Music Learning", bio_p1_text: "Komsay was born in Sanandaj, Eastern Kurdistan. She started learning music at the age of six and continued to develop her talents as she grew up.",
-                bio_p2_title: "Instruments and Artistic Success", bio_p2_text: "Komsay plays the kamancheh and saz, later shifting her artistic path towards singing. Her official debut was in 2013 on the program 'Xoshtрин Dang'. She is known as the first Kurdish artist in the 'Trance' and 'House' styles, dubbed the 'Queen of Sad Voice', and was chosen as the best Kurdish female artist in 2015.",
+                bio_p2_title: "Instruments and Artistic Success", bio_p2_text: "Komsay plays the kamancheh and saz, later shifting her artistic path towards singing. Her official debut was in 2013 on the program 'Xoshtrin Dang'. She is known as the first Kurdish artist in the 'Trance' and 'House' styles, dubbed the 'Queen of Sad Voice', and was chosen as the best Kurdish female artist in 2015.",
                 bio_p3_title: "Origin & Heritage", bio_p3_text: "Her father is from Southern Kurdistan, her mother from Western Kurdistan, and she was born in Eastern Kurdistan.",
                 bio_p4_title: "Education and Science", bio_p4_text: "She studied architecture for two years, then three years in Business Administration, two years in English Translation, and is currently studying medicine.",
                 bio_p5_title: "Meaning of the Name “Komsay”", bio_p5_text: "The name Komsay refers to the historical ritual in Hawraman held annually in May where the Komsay stone is broken and regenerates by next year.",
@@ -836,6 +936,7 @@
                 hero_subtitle: "KURDISH SINGER", hero_quote: "پیشاهنگ موسیقی کردی و نوآوری در دنیای صدا و هنر.",
                 btn_listen: "LISTEN NOW", btn_bio: "BIOGRAPHY", explore_title: "✨ کاوش در آثار کومسای ✨",
                 card_music: "Music 🎵", card_videos: "Videos 🎬", card_gallery: "Gallery 📷", card_bio: "Biography 🌟", card_news: "News 📰", card_contact: "Contact ✉️",
+                home_summary_title: "شناسنامه شخصی", lbl_name: "نام:", lbl_place: "محل تولد:", val_place: "سنندج، شرق کردستان", lbl_job: "پیشه:", val_job: "خواننده", lbl_birth: "تاریخ تولد:", lbl_award: "جایزه:", val_award: "۲۰۱۵ بهترین هنرمند زن سال", lbl_albums: "آلبوم‌ها:", lbl_tracks: "آثار:", lbl_debut: "اولین حضور:", download_text: "دانلود تصویر",
                 bio_subtitle: "OFFICIAL BIOGRAPHY", bio_main_title: "بیوگرافی کومسای", bio_childhood_title: "تصاویر کودکی و آغاز زندگی",
                 bio_p1_title: "آغاز زندگی و یادگیری موسیقی", bio_p1_text: "کومسای در سنندج، شرق کردستان به دنیا آمد. او از شش سالگی یادگیری موسیقی را آغاز کرد و با بزرگ شدن همواره به پرورش استعدادهایش ادامه داد.",
                 bio_p2_title: "سازها و موفقیت هنری", bio_p2_text: "کومسای نوازنده سازهای کمانچه و ساز است و بعدها مسیر هنری خود را به سمت خوانندگی سوق داد. اولین حضور رسمی او در سال ۲۰۱۳ در برنامه 'خوشترین دەنگ' بود. او به عنوان اولین هنرمند کرد در سبک‌های 'ترنس' و 'هاوس' شناخته می‌شود و به 'ملکه صدای غمگین' شهرت دارد و در سال ۲۰۱۵ به عنوان بهترین خواننده زن کرد انتخاب شد.",
@@ -899,6 +1000,22 @@
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
             window.location.hash = pageId;
+        }
+
+        // Lightbox Functions for Image Zoom & Download
+        function openLightbox(imgSrc) {
+            const modal = document.getElementById('lightboxModal');
+            const img = document.getElementById('lightboxImg');
+            const downloadBtn = document.getElementById('lightboxDownloadBtn');
+            
+            img.src = imgSrc;
+            downloadBtn.href = imgSrc;
+            modal.classList.add('active');
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightboxModal');
+            modal.classList.remove('active');
         }
 
         window.addEventListener('DOMContentLoaded', () => {
