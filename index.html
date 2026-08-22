@@ -220,13 +220,13 @@
             </a>
 
             <nav class="flex items-center gap-1.5 overflow-x-auto hide-scrollbar text-[11px] font-medium text-gray-300 py-1 px-1">
-                <a href="#home" data-page="home" onclick="showPage('home', event)" class="nav-link px-3.5 py-1 rounded-full transition-all text-goldAccent bg-white/10 flex items-center gap-1.5 flex-shrink-0 shadow-inner" data-i18n="nav_home"><i class="fa-solid fa-house text-[10px]"></i> سەرەتا</a>
-                <a href="#biography" data-page="biography" onclick="showPage('biography', event)" class="nav-link px-3.5 py-1 rounded-full transition-all hover:text-goldAccent flex items-center gap-1.5 flex-shrink-0" data-i18n="nav_bio"><i class="fa-solid fa-user text-[10px]"></i> ژیاننامە</a>
-                <a href="#music" data-page="music" onclick="showPage('music', event)" class="nav-link px-3.5 py-1 rounded-full transition-all hover:text-goldAccent flex items-center gap-1.5 flex-shrink-0" data-i18n="nav_music"><i class="fa-solid fa-music text-[10px]"></i> مۆسیقا</a>
-                <a href="#videos" data-page="videos" onclick="showPage('videos', event)" class="nav-link px-3.5 py-1 rounded-full transition-all hover:text-goldAccent flex items-center gap-1.5 flex-shrink-0" data-i18n="nav_videos"><i class="fa-solid fa-video text-[10px]"></i> ڤیدیۆ</a>
-                <a href="#gallery" data-page="gallery" onclick="showPage('gallery', event)" class="nav-link px-3.5 py-1 rounded-full transition-all hover:text-goldAccent flex items-center gap-1.5 flex-shrink-0" data-i18n="nav_gallery"><i class="fa-solid fa-image text-[10px]"></i> گەلەری</a>
-                <a href="#news" data-page="news" onclick="showPage('news', event)" class="nav-link px-3.5 py-1 rounded-full transition-all hover:text-goldAccent flex items-center gap-1.5 flex-shrink-0" data-i18n="nav_news"><i class="fa-solid fa-newspaper text-[10px]"></i> هەواڵ</a>
-                <a href="#contact" data-page="contact" onclick="showPage('contact', event)" class="nav-link px-3.5 py-1 rounded-full transition-all hover:text-goldAccent flex items-center gap-1.5 flex-shrink-0" data-i18n="nav_contact"><i class="fa-solid fa-envelope text-[10px]"></i> پەیوەندی</a>
+                <a href="#home" data-page="home" onclick="showPage('home', event)" class="nav-link px-3.5 py-1 rounded-full transition-all text-goldAccent bg-white/10 flex items-center gap-1.5 flex-shrink-0 shadow-inner" data-i18n="nav_home"><i class="fa-solid fa-house text-[10px]"></i> <span data-i18n="nav_home_text">سەرەتا</span></a>
+                <a href="#biography" data-page="biography" onclick="showPage('biography', event)" class="nav-link px-3.5 py-1 rounded-full transition-all hover:text-goldAccent flex items-center gap-1.5 flex-shrink-0" data-i18n="nav_bio"><i class="fa-solid fa-user text-[10px]"></i> <span data-i18n="nav_bio_text">ژیاننامە</span></a>
+                <a href="#music" data-page="music" onclick="showPage('music', event)" class="nav-link px-3.5 py-1 rounded-full transition-all hover:text-goldAccent flex items-center gap-1.5 flex-shrink-0" data-i18n="nav_music"><i class="fa-solid fa-music text-[10px]"></i> <span data-i18n="nav_music_text">مۆسیقا</span></a>
+                <a href="#videos" data-page="videos" onclick="showPage('videos', event)" class="nav-link px-3.5 py-1 rounded-full transition-all hover:text-goldAccent flex items-center gap-1.5 flex-shrink-0" data-i18n="nav_videos"><i class="fa-solid fa-video text-[10px]"></i> <span data-i18n="nav_videos_text">ڤیدیۆ</span></a>
+                <a href="#gallery" data-page="gallery" onclick="showPage('gallery', event)" class="nav-link px-3.5 py-1 rounded-full transition-all hover:text-goldAccent flex items-center gap-1.5 flex-shrink-0" data-i18n="nav_gallery"><i class="fa-solid fa-image text-[10px]"></i> <span data-i18n="nav_gallery_text">گەلەری</span></a>
+                <a href="#news" data-page="news" onclick="showPage('news', event)" class="nav-link px-3.5 py-1 rounded-full transition-all hover:text-goldAccent flex items-center gap-1.5 flex-shrink-0" data-i18n="nav_news"><i class="fa-solid fa-newspaper text-[10px]"></i> <span data-i18n="nav_news_text">هەواڵ</span></a>
+                <a href="#contact" data-page="contact" onclick="showPage('contact', event)" class="nav-link px-3.5 py-1 rounded-full transition-all hover:text-goldAccent flex items-center gap-1.5 flex-shrink-0" data-i18n="nav_contact"><i class="fa-solid fa-envelope text-[10px]"></i> <span data-i18n="nav_contact_text">پەیوەندی</span></a>
             </nav>
 
             <div class="flex items-center gap-2 flex-shrink-0">
@@ -283,7 +283,7 @@
         <section id="view-biography" class="page-view max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div class="text-center mb-6 space-y-2">
                 <span class="font-en text-[10px] font-semibold tracking-[0.25em] text-goldAccent uppercase" data-i18n="bio_subtitle">OFFICIAL BIOGRAPHY</span>
-                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader">ژیاننامەی کۆمسای</h2>
+                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader" data-i18n="bio_main_title">ژیاننامەی کۆمسای</h2>
                 <div class="w-10 h-0.5 bg-goldAccent/50 mx-auto mt-2"></div>
             </div>
 
@@ -291,7 +291,7 @@
                 <!-- 3 Childhood Photos Grid inside Biography -->
                 <div class="bg-cardBg rounded-2xl p-5 luxury-card space-y-3">
                     <div class="flex items-center gap-2 text-goldAccent font-serifHeader text-base font-bold">
-                        <i class="fa-solid fa-camera-retro text-xs"></i> <span>وێنەی منداڵی و سەرەتای ژیان</span>
+                        <i class="fa-solid fa-camera-retro text-xs"></i> <span data-i18n="bio_childhood_title">وێنەی منداڵی و سەرەتای ژیان</span>
                     </div>
                     <div class="grid grid-cols-3 gap-3">
                         <div class="aspect-[4/3] rounded-xl overflow-hidden bg-darkBg border border-goldAccent/25">
@@ -308,48 +308,48 @@
 
                 <!-- Detailed Biography Content -->
                 <div class="bg-cardBg rounded-2xl p-5 luxury-card space-y-2">
-                    <h3 class="text-goldAccent font-serifHeader text-base font-bold"><i class="fa-solid fa-music text-xs"></i> سەرەتای ژیان و فێربوونی مۆسیقا</h3>
-                    <p class="text-gray-300 font-light leading-relaxed">کۆمسای لە شاری سنەی ڕۆژهەڵاتی کوردستان لەدایکبووە. ئەو لە تەمەنی شەش ساڵییەوە دەستی بە فێربوونی مۆسیقا کردووە و لەگەڵ گەورەبوونیدا بەردەوام پەرەی بە بەهرەکانی داوە.</p>
+                    <h3 class="text-goldAccent font-serifHeader text-base font-bold"><i class="fa-solid fa-music text-xs"></i> <span data-i18n="bio_p1_title">سەرەتای ژیان و فێربوونی مۆسیقا</span></h3>
+                    <p class="text-gray-300 font-light leading-relaxed" data-i18n="bio_p1_text">کۆمسای لە شاری سنەی ڕۆژهەڵاتی کوردستان لەدایکبووە. ئەو لە تەمەنی شەش ساڵییەوە دەستی بە فێربوونی مۆسیقا کردووە و لەگەڵ گەورەبوونیدا بەردەوام پەرەی بە بەهرەکانی داوە.</p>
                 </div>
 
                 <div class="bg-cardBg rounded-2xl p-5 luxury-card space-y-2">
-                    <h3 class="text-goldAccent font-serifHeader text-base font-bold"><i class="fa-solid fa-guitar text-xs"></i> ئامێرەکان و سەرکەوتنی هونەری</h3>
-                    <p class="text-gray-300 font-light leading-relaxed">کۆمسای ژەنەری ئامێرەکانی کەمانچە و سازە و دواتر ڕێڕەوی هونەریی خۆی بەرەو گۆرانیوتن بردووە. یەکەم دەرکەوتنی فەرمیی لە ساڵی ٢٠١٣ لە بەرنامەی "خۆشترین دەنگ" بوو. ئەو وەک یەکەم هونەرمەندی کورد لە ستایلی "ترانس" و "هاوس" ناسراوە و بە "شاژنی دەنگی خەمناک" لە کوردستان ناوبانگی دەرکردووە، هەروەها لە ساڵی ٢٠١٥ وەک باشترین خانمە هونەرمەندی کورد لە کوردستان هەڵبژێردراوە.</p>
+                    <h3 class="text-goldAccent font-serifHeader text-base font-bold"><i class="fa-solid fa-guitar text-xs"></i> <span data-i18n="bio_p2_title">ئامێرەکان و سەرکەوتنی هونەری</span></h3>
+                    <p class="text-gray-300 font-light leading-relaxed" data-i18n="bio_p2_text">کۆمسای ژەنەری ئامێرەکانی کەمانچە و سازە و دواتر ڕێڕەوی هونەریی خۆی بەرەو گۆرانیوتن بردووە. یەکەم دەرکەوتنی فەرمیی لە ساڵی ٢٠١٣ لە بەرنامەی "خۆشترین دەنگ" بوو. ئەو وەک یەکەم هونەرمەندی کورد لە ستایلی "ترانس" و "هاوس" ناسراوە و بە "شاژنی دەنگی خەمناک" لە کوردستان ناوبانگی دەرکردووە، هەروەها لە ساڵی ٢٠١٥ وەک باشترین خانمە هونەرمەندی کورد لە کوردستان هەڵبژێردراوە.</p>
                 </div>
 
                 <div class="bg-cardBg rounded-2xl p-5 luxury-card space-y-2">
-                    <h3 class="text-goldAccent font-serifHeader text-base font-bold"><i class="fa-solid fa-earth-americas text-xs"></i> ڕەچەڵەک</h3>
-                    <p class="text-gray-300 font-light leading-relaxed">باوکی خەڵکی باشووری کوردستان، دایکی خەڵکی ڕۆژاوای کوردستان، و خۆیشی لەدایکبووی ڕۆژهەڵاتی کوردستانە.</p>
+                    <h3 class="text-goldAccent font-serifHeader text-base font-bold"><i class="fa-solid fa-earth-americas text-xs"></i> <span data-i18n="bio_p3_title">ڕەچەڵەک</span></h3>
+                    <p class="text-gray-300 font-light leading-relaxed" data-i18n="bio_p3_text">باوکی خەڵکی باشووری کوردستان، دایکی خەڵکی ڕۆژاوای کوردستان، و خۆیشی لەدایکبووی ڕۆژهەڵاتی کوردستانە.</p>
                 </div>
 
                 <div class="bg-cardBg rounded-2xl p-5 luxury-card space-y-2">
-                    <h3 class="text-goldAccent font-serifHeader text-base font-bold"><i class="fa-solid fa-graduation-cap text-xs"></i> خوێندن و زانست</h3>
-                    <p class="text-gray-300 font-light leading-relaxed">ئەو ماوەی دوو ساڵ لە بواری تەلارسازی خوێندوویەتی، پاشان سێ ساڵ لە بەڕێوەبردنی کار (Business Administration) و دوو ساڵیش لە وەرگێڕانی ئینگلیزی، و لە ئێستاشدا سەرقاڵی خوێندنی بواری پزیشکییە.</p>
+                    <h3 class="text-goldAccent font-serifHeader text-base font-bold"><i class="fa-solid fa-graduation-cap text-xs"></i> <span data-i18n="bio_p4_title">خوێندن و زانست</span></h3>
+                    <p class="text-gray-300 font-light leading-relaxed" data-i18n="bio_p4_text">ئەو ماوەی دوو ساڵ لە بواری تەلارسازی خوێندوویەتی، پاشان سێ ساڵ لە بەڕێوەبردنی کار (Business Administration) و دوو ساڵیش لە وەرگێڕانی ئینگلیزی، و لە ئێستاشدا سەرقاڵی خوێندنی بواری پزیشکییە.</p>
                 </div>
 
                 <div class="bg-cardBg rounded-2xl p-5 luxury-card space-y-2 border-goldAccent/40">
-                    <h3 class="text-goldAccent font-serifHeader text-base font-bold"><i class="fa-solid fa-crown text-xs"></i> مانای ناوی “کۆمسای”</h3>
-                    <p class="text-gray-300 font-light leading-relaxed">ناوی کۆمسای واتا ڕێوڕەسمی مێژوویی بە ناوی کۆمسای لە هەورامان کە ساڵانە لە مانگی گوڵاندا بەڕێوە دەچێت و بەردی کۆمسای دەشکێت و ساڵی داهاتوو وەک خۆی لێدێتەوە.</p>
+                    <h3 class="text-goldAccent font-serifHeader text-base font-bold"><i class="fa-solid fa-crown text-xs"></i> <span data-i18n="bio_p5_title">مانای ناوی “کۆمسای”</span></h3>
+                    <p class="text-gray-300 font-light leading-relaxed" data-i18n="bio_p5_text">ناوی کۆمسای واتا ڕێوڕەسمی مێژوویی بە ناوی کۆمسای لە هەورامان کە ساڵانە لە مانگی گوڵاندا بەڕێوە دەچێت و بەردی کۆمسای دەشکێت و ساڵی داهاتوو وەک خۆی لێدێتەوە.</p>
                 </div>
             </div>
         </section>
 
-        <!-- ================= 3. MUSIC PAGE (With Spotify Links instead of Lyrics) ================= -->
+        <!-- ================= 3. MUSIC PAGE ================= -->
         <section id="view-music" class="page-view max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
             <div class="text-center space-y-2">
                 <span class="font-en text-[10px] font-semibold tracking-[0.25em] text-goldAccent uppercase">DISCOGRAPHY</span>
-                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader">مۆسیقای کۆمسای</h2>
+                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader" data-i18n="music_main_title">مۆسیقای کۆمسای</h2>
                 <div class="w-10 h-0.5 bg-goldAccent/50 mx-auto mt-2"></div>
             </div>
 
             <!-- Featured Single WTT (2024) -->
             <div class="space-y-3">
-                <h3 class="text-[11px] font-en font-semibold tracking-wider text-goldAccent uppercase">✨ LATEST SINGLE • 2024 (دواین بەرهەم)</h3>
+                <h3 class="text-[11px] font-en font-semibold tracking-wider text-goldAccent uppercase" data-i18n="music_latest_label">✨ LATEST SINGLE • 2024 (دواین بەرهەم)</h3>
                 <div class="bg-cardBg rounded-2xl p-4 luxury-card flex items-center justify-between gap-4 border-goldAccent/60">
                     <div class="flex items-center gap-3">
                         <div class="equalizer"><span></span><span></span><span></span></div>
                         <div>
-                            <span class="text-[9px] font-en text-goldAccent font-semibold block uppercase">دواین بەرهەمی ساڵی ٢٠٢٤</span>
+                            <span class="text-[9px] font-en text-goldAccent font-semibold block uppercase" data-i18n="music_wtt_sub">دواین بەرهەمی ساڵی ٢٠٢٤</span>
                             <h4 class="text-sm font-bold text-white font-en">WTT / ووت</h4>
                         </div>
                     </div>
@@ -362,11 +362,11 @@
 
             <!-- Singles Section with Spotify Links -->
             <div class="space-y-3">
-                <h3 class="text-[11px] font-en font-semibold tracking-wider text-goldAccent uppercase">SINGLES (SPOTIFY & YOUTUBE)</h3>
+                <h3 class="text-[11px] font-en font-semibold tracking-wider text-goldAccent uppercase" data-i18n="music_singles_label">SINGLES (SPOTIFY & YOUTUBE)</h3>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
                     
                     <div class="bg-cardBg rounded-xl p-3 luxury-card flex items-center justify-between text-xs">
-                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">سڵاو بێچ</span></div>
+                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold" data-i18n="track_slaw">سڵاو بێچ</span></div>
                         <div class="flex gap-1.5">
                             <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-400 text-[9px]"><i class="fa-brands fa-spotify"></i></a>
                             <a href="https://youtu.be/5j3s87yimXM?si=pWLk4cglS9J04e6G" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
@@ -374,7 +374,7 @@
                     </div>
 
                     <div class="bg-cardBg rounded-xl p-3 luxury-card flex items-center justify-between text-xs">
-                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">ئەم کاتەت باش</span></div>
+                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold" data-i18n="track_amkatet">ئەم کاتەت باش</span></div>
                         <div class="flex gap-1.5">
                             <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-400 text-[9px]"><i class="fa-brands fa-spotify"></i></a>
                             <a href="https://youtu.be/pSHSKcIo-Wo?si=V3C0NdtO5Sp3X6Xj" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
@@ -382,7 +382,7 @@
                     </div>
 
                     <div class="bg-cardBg rounded-xl p-3 luxury-card flex items-center justify-between text-xs">
-                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">سوڵتان</span></div>
+                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold" data-i18n="track_sultan">سوڵتان</span></div>
                         <div class="flex gap-1.5">
                             <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-400 text-[9px]"><i class="fa-brands fa-spotify"></i></a>
                             <a href="https://youtu.be/q9f76Fw0gF4?si=F0gQasIa9gP4obql" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
@@ -390,7 +390,7 @@
                     </div>
 
                     <div class="bg-cardBg rounded-xl p-3 luxury-card flex items-center justify-between text-xs">
-                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">کەپڵی تازە</span></div>
+                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold" data-i18n="track_kapli">کەپڵی تازە</span></div>
                         <div class="flex gap-1.5">
                             <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-400 text-[9px]"><i class="fa-brands fa-spotify"></i></a>
                             <a href="https://youtu.be/eJ8_tj0KUAQ?si=5oP5BQlvsoHIbxQF" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
@@ -398,7 +398,7 @@
                     </div>
 
                     <div class="bg-cardBg rounded-xl p-3 luxury-card flex items-center justify-between text-xs">
-                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">خڕەی مێخەک</span></div>
+                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold" data-i18n="track_khra">خڕەی مێخەک</span></div>
                         <div class="flex gap-1.5">
                             <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-400 text-[9px]"><i class="fa-brands fa-spotify"></i></a>
                             <a href="https://youtu.be/-rCXuvioFSg?si=gadH7ZMQbesKY_81" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
@@ -406,7 +406,7 @@
                     </div>
 
                     <div class="bg-cardBg rounded-xl p-3 luxury-card flex items-center justify-between text-xs">
-                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold">دیان تەڵا</span></div>
+                        <div class="flex items-center gap-2"><div class="equalizer"><span></span><span></span><span></span></div><span class="font-en text-white font-semibold" data-i18n="track_dian">دیان تەڵا</span></div>
                         <div class="flex gap-1.5">
                             <a href="https://open.spotify.com/artist/3O0UtR9dUyXLRTIFbYdmgs" target="_blank" class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-400 text-[9px]"><i class="fa-brands fa-spotify"></i></a>
                             <a href="https://youtu.be/_tXVtcJafvw?si=911iPxYDwwNdwwUI" target="_blank" class="px-2 py-1 rounded bg-red-500/20 text-red-400 text-[9px]"><i class="fa-brands fa-youtube"></i></a>
@@ -416,51 +416,144 @@
                 </div>
             </div>
 
-            <!-- Albums Section -->
-            <div class="space-y-3 pt-4">
-                <h3 class="text-[11px] font-en font-semibold tracking-wider text-goldAccent uppercase">ALBUMS</h3>
-                <div class="grid sm:grid-cols-2 gap-3">
-                    <div class="bg-cardBg rounded-xl p-4 luxury-card flex items-center justify-between">
+            <!-- Albums & Tracks Section -->
+            <div class="space-y-6 pt-4">
+                <h3 class="text-[11px] font-en font-semibold tracking-wider text-goldAccent uppercase" data-i18n="music_albums_label">ALBUMS & TRACKS (تراکی ئەلبوومەکان)</h3>
+                
+                <!-- Album 1: Malish Donya (ماڵی دونیا) -->
+                <div class="bg-cardBg rounded-2xl p-5 luxury-card space-y-4 border-goldAccent/30">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-3">
                         <div class="flex items-center gap-2.5">
                             <div class="equalizer"><span></span><span></span><span></span></div>
-                            <div><h4 class="text-xs font-semibold text-white font-en">ماڵی دونیا</h4><span class="text-[10px] text-goldAccent font-en">2014 Album</span></div>
+                            <h4 class="text-sm font-bold text-white font-en" data-i18n="album_1_title">ئەلبۆمی ماڵی دونیا (2014)</h4>
                         </div>
+                        <span class="text-[10px] text-goldAccent font-en">7 Tracks</span>
                     </div>
-                    <div class="bg-cardBg rounded-xl p-4 luxury-card flex items-center justify-between">
-                        <div class="flex items-center gap-2.5">
-                            <div class="equalizer"><span></span><span></span><span></span></div>
-                            <div><h4 class="text-xs font-semibold text-white font-en">زرمە</h4><span class="text-[10px] text-goldAccent font-en">2015 Album</span></div>
+                    <div class="grid sm:grid-cols-2 gap-2.5">
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">کافر ٣</span>
+                            <a href="https://youtu.be/Eq6p5RmbjEY?si=wI-i0JvDhAYjt_fh" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">مەستم</span>
+                            <a href="https://youtu.be/zurRr-0KMzg?si=OE6e8KCuHAg_0Ozb" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">ماڵی دونیا</span>
+                            <a href="https://youtu.be/t_OGzPzhSNY?si=xmAnXGSuY9HAD7jX" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">بەختەوەر</span>
+                            <a href="https://youtu.be/Rtot9DkgGJU?si=tK2f5KsfACXzY5Zt" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">مەڵێ خودا حافیز</span>
+                            <a href="https://youtu.be/4JKbJdlBha8?si=y1poUWDXf5r6nd9r" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">بەبێ دەنگ</span>
+                            <a href="https://youtu.be/rwx2Vhdqnlo?si=JebGMNms7GvGopcl" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs sm:col-span-2">
+                            <span class="font-semibold text-white">باوەش</span>
+                            <a href="https://youtu.be/KQRhnDrvUDM?si=W0CZvBt69ZZQrexR" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Album 2: Zirma (زرمە) -->
+                <div class="bg-cardBg rounded-2xl p-5 luxury-card space-y-4 border-goldAccent/30">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                        <div class="flex items-center gap-2.5">
+                            <div class="equalizer"><span></span><span></span><span></span></div>
+                            <h4 class="text-sm font-bold text-white font-en" data-i18n="album_2_title">ئەلبۆمی زرمە (2015)</h4>
+                        </div>
+                        <span class="text-[10px] text-goldAccent font-en">12 Tracks</span>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-2.5">
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">کافر ٤</span>
+                            <a href="https://youtu.be/m4NMpT_ITlU?si=xai_RMddqUYjV8Q4" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">باران</span>
+                            <a href="https://youtu.be/GgYWifoBPXE?si=5DAQ3KCQiHIexqf9" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">شان بە شان</span>
+                            <a href="https://youtu.be/DGs9sZ-_N34?si=gKLZKshpVt4_Qyug" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">زرمە</span>
+                            <a href="https://youtu.be/BfSOehba6eY?si=VL15pIWu-KQ_IUe5" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">نەباتەن شیرین</span>
+                            <a href="https://youtu.be/DPPlrMtD5nk?si=1553RKRPfXCMuKuW" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">لەعنەت لە تۆ</span>
+                            <a href="https://youtu.be/TXi6eTyMMOk?si=vcsnMRTmU5f9t8dG" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">دڵم مەشکێنە</span>
+                            <a href="https://youtu.be/oDPRAlTGay4?si=y1kO18Etatxs5JcH" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">لەرزانە</span>
+                            <a href="https://youtu.be/oeUQ7kXJof8?si=hK2FRSeK9MBNp_QX" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">بەختی ڕەش</span>
+                            <a href="https://youtu.be/i8UyoyRxGvo?si=KpzyAW1uz7Ck96IU" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">شیرین و شیرین</span>
+                            <a href="https://youtu.be/ln3ay2n5wjg?si=mS4wnOQvst2jO4uY" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">خودات لەگەڵ بێ</span>
+                            <a href="https://youtu.be/W6T4QM4TfFs?si=5y9Jk2juvj5pexWR" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs">
+                            <span class="font-semibold text-white">هەناسەی سارد</span>
+                            <a href="https://youtu.be/FQMRCtx24qE?si=Ct9_cGTz_K-midRi" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                        <div class="bg-darkBg/60 rounded-xl p-3 border border-white/5 flex items-center justify-between text-xs sm:col-span-2">
+                            <span class="font-semibold text-white">فۆلکلۆر (ڕیمێکس)</span>
+                            <a href="https://youtu.be/Kz_SNB_Ji1M?si=T4C9Gs-Pu_RYLRQ5" target="_blank" class="px-2.5 py-1 rounded bg-red-500/20 text-red-400 text-[10px]" data-i18n="btn_youtube"><i class="fa-brands fa-youtube"></i> یوتوب</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <!-- ================= 4. GALLERY PAGE ================= -->
         <section id="view-gallery" class="page-view max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div class="text-center mb-6 space-y-2">
-                <span class="font-en text-[10px] font-semibold tracking-[0.25em] text-goldAccent uppercase">GALLERY (10 PHOTOS)</span>
-                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader">گەلەری وێنەکان</h2>
+                <span class="font-en text-[10px] font-semibold tracking-[0.25em] text-goldAccent uppercase" data-i18n="gallery_sub">GALLERY (10 PHOTOS)</span>
+                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader" data-i18n="gallery_main_title">گەلەری وێنەکان</h2>
                 <div class="w-10 h-0.5 bg-goldAccent/50 mx-auto mt-2"></div>
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400">وێنەی ١</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400">وێنەی ٢</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400">وێنەی ٣</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400">وێنەی ٤</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400">وێنەی ٥</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400">وێنەی ٦</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400">وێنەی ٧</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400">وێنەی ٨</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400">وێنەی ٩</div>
-                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400">وێنەی ١٠</div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_1">وێنەی ١</div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_2">وێنەی ٢</div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_3">وێنەی ٣</div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_4">وێنەی ٤</div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_5">وێنەی ٥</div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_6">وێنەی ٦</div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_7">وێنەی ٧</div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_8">وێنەی ٨</div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_9">وێنەی ٩</div>
+                <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400" data-i18n="img_10">وێنەی ١٠</div>
             </div>
         </section>
 
-        <!-- ================= 5. VIDEOS PAGE (Restored all 5 clips including Bawah / باوەش) ================= -->
+        <!-- ================= 5. VIDEOS PAGE ================= -->
         <section id="view-videos" class="page-view max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
             <div class="text-center space-y-2">
-                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader">ڤیدیۆ کلیپەکان</h2>
+                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader" data-i18n="videos_main_title">ڤیدیۆ کلیپەکان</h2>
                 <div class="w-10 h-0.5 bg-goldAccent/50 mx-auto mt-2"></div>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -472,7 +565,7 @@
                         <a href="https://youtu.be/6Yv-9z8Lnn0?si=B-r2HUVa5ee4HpNU" target="_blank" class="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-3xl"><i class="fa-solid fa-circle-play text-red-600 bg-white rounded-full"></i></a>
                     </div>
                     <h3 class="text-xs font-semibold text-white">Komsay - WTT</h3>
-                    <a href="https://youtu.be/6Yv-9z8Lnn0?si=B-r2HUVa5ee4HpNU" target="_blank" class="inline-block px-4 py-1.5 rounded-full bg-red-600 text-white font-en text-[10px] font-semibold uppercase">Watch on YouTube</a>
+                    <a href="https://youtu.be/6Yv-9z8Lnn0?si=B-r2HUVa5ee4HpNU" target="_blank" class="inline-block px-4 py-1.5 rounded-full bg-red-600 text-white font-en text-[10px] font-semibold uppercase" data-i18n="btn_watch_yt">Watch on YouTube</a>
                 </div>
 
                 <!-- 2. Slaw Bitch -->
@@ -482,7 +575,7 @@
                         <a href="https://youtu.be/5j3s87yimXM?si=pWLk4cglS9J04e6G" target="_blank" class="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-3xl"><i class="fa-solid fa-circle-play text-red-600 bg-white rounded-full"></i></a>
                     </div>
                     <h3 class="text-xs font-semibold text-white">Komsay - Slaw Bitch</h3>
-                    <a href="https://youtu.be/5j3s87yimXM?si=pWLk4cglS9J04e6G" target="_blank" class="inline-block px-4 py-1.5 rounded-full bg-red-600 text-white font-en text-[10px] font-semibold uppercase">Watch on YouTube</a>
+                    <a href="https://youtu.be/5j3s87yimXM?si=pWLk4cglS9J04e6G" target="_blank" class="inline-block px-4 py-1.5 rounded-full bg-red-600 text-white font-en text-[10px] font-semibold uppercase" data-i18n="btn_watch_yt">Watch on YouTube</a>
                 </div>
 
                 <!-- 3. Am Katet Bash -->
@@ -492,7 +585,7 @@
                         <a href="https://youtu.be/pSHSKcIo-Wo?si=V3C0NdtO5Sp3X6Xj" target="_blank" class="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-3xl"><i class="fa-solid fa-circle-play text-red-600 bg-white rounded-full"></i></a>
                     </div>
                     <h3 class="text-xs font-semibold text-white">Komsay - Am Katet Bash</h3>
-                    <a href="https://youtu.be/pSHSKcIo-Wo?si=V3C0NdtO5Sp3X6Xj" target="_blank" class="inline-block px-4 py-1.5 rounded-full bg-red-600 text-white font-en text-[10px] font-semibold uppercase">Watch on YouTube</a>
+                    <a href="https://youtu.be/pSHSKcIo-Wo?si=V3C0NdtO5Sp3X6Xj" target="_blank" class="inline-block px-4 py-1.5 rounded-full bg-red-600 text-white font-en text-[10px] font-semibold uppercase" data-i18n="btn_watch_yt">Watch on YouTube</a>
                 </div>
 
                 <!-- 4. Sultan -->
@@ -502,7 +595,7 @@
                         <a href="https://youtu.be/q9f76Fw0gF4?si=F0gQasIa9gP4obql" target="_blank" class="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-3xl"><i class="fa-solid fa-circle-play text-red-600 bg-white rounded-full"></i></a>
                     </div>
                     <h3 class="text-xs font-semibold text-white">Komsay - Sultan</h3>
-                    <a href="https://youtu.be/q9f76Fw0gF4?si=F0gQasIa9gP4obql" target="_blank" class="inline-block px-4 py-1.5 rounded-full bg-red-600 text-white font-en text-[10px] font-semibold uppercase">Watch on YouTube</a>
+                    <a href="https://youtu.be/q9f76Fw0gF4?si=F0gQasIa9gP4obql" target="_blank" class="inline-block px-4 py-1.5 rounded-full bg-red-600 text-white font-en text-[10px] font-semibold uppercase" data-i18n="btn_watch_yt">Watch on YouTube</a>
                 </div>
 
                 <!-- 5. Bawah (باوەش) -->
@@ -512,7 +605,7 @@
                         <a href="https://youtu.be/KQRhnDrvUDM?si=g00_YrUlPKlrtGTU" target="_blank" class="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-3xl"><i class="fa-solid fa-circle-play text-red-600 bg-white rounded-full"></i></a>
                     </div>
                     <h3 class="text-xs font-semibold text-white">Komsay - باوەش (Bawah)</h3>
-                    <a href="https://youtu.be/KQRhnDrvUDM?si=g00_YrUlPKlrtGTU" target="_blank" class="inline-block px-4 py-1.5 rounded-full bg-red-600 text-white font-en text-[10px] font-semibold uppercase">Watch on YouTube</a>
+                    <a href="https://youtu.be/KQRhnDrvUDM?si=g00_YrUlPKlrtGTU" target="_blank" class="inline-block px-4 py-1.5 rounded-full bg-red-600 text-white font-en text-[10px] font-semibold uppercase" data-i18n="btn_watch_yt">Watch on YouTube</a>
                 </div>
 
             </div>
@@ -522,27 +615,17 @@
         <section id="view-news" class="page-view max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
             <div class="text-center space-y-2">
                 <span class="font-en text-[10px] font-semibold tracking-[0.25em] text-goldAccent uppercase">NEWS & VIEWS</span>
-                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader">هەواڵ و تێڕوانینی هونەرمەند</h2>
+                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader" data-i18n="news_main_title">هەواڵ و تێڕوانینی هونەرمەند</h2>
                 <div class="w-10 h-0.5 bg-goldAccent/50 mx-auto mt-2"></div>
             </div>
 
-            <!-- Personal Statement / Philosophy -->
-            <div class="bg-cardBg rounded-2xl p-5 luxury-card space-y-3 border-goldAccent/40">
-                <div class="flex items-center gap-2 text-goldAccent font-serifHeader text-base font-bold">
-                    <i class="fa-solid fa-quote-right text-xs"></i> <span>فەلسەفە و تێڕوانینی ژیان</span>
-                </div>
-                <p class="text-gray-200 font-light leading-relaxed text-xs sm:text-sm italic">
-                    “من خۆم بە کەسێکی فێمینیزم و ئازاد دەزانم. من هونەرەمدیم، خێرخوازم و خوێندەوارم، دوو زانکۆم تەواوکردووە، ئەسترۆلۆژیزانم و ئاشقی مێتافیزیکم، بڕوام بە کارما هەیە و یۆگا دەکەم و ئازادم، چونکە بەپێی سوننەتە دروستکراو و بیرە کۆنەکان ناژیم، ژیانم پاک و سادەیە.”
-                </p>
-            </div>
-
-            <!-- Live Interview Thumbnail Card -->
-            <div class="bg-cardBg rounded-xl p-4 luxury-card space-y-3">
+            <!-- Live Interview Thumbnail Card (Moved to the very top of News) -->
+            <div class="bg-cardBg rounded-xl p-4 luxury-card space-y-3 border-goldAccent/40">
                 <div class="flex justify-between items-center text-[10px] text-goldAccent font-en">
                     <span>LIVE STREAM / TV INTERVIEW</span>
                     <span>YouTube Live</span>
                 </div>
-                <h4 class="text-sm font-bold text-white">چاوپێکەوتنی ڕاستەوخۆ و تایبەتی کۆمسای</h4>
+                <h4 class="text-sm font-bold text-white" data-i18n="news_live_title">چاوپێکەوتنی ڕاستەوخۆ و تایبەتی کۆمسای</h4>
                 <div class="aspect-video rounded-xl overflow-hidden bg-darkBg border border-white/10 relative group">
                     <img src="https://img.youtube.com/vi/FpmcjjNT8dw/hqdefault.jpg" alt="Live Interview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.onerror=null; this.src='https://img.youtube.com/vi/6Yv-9z8Lnn0/hqdefault.jpg';">
                     <a href="https://www.youtube.com/live/FpmcjjNT8dw?si=e_j-8lsBqY8uR8tv" target="_blank" class="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-4xl">
@@ -550,25 +633,52 @@
                     </a>
                 </div>
                 <div>
-                    <a href="https://www.youtube.com/live/FpmcjjNT8dw?si=e_j-8lsBqY8uR8tv" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-red-600 text-white font-en text-[10px] font-semibold uppercase shadow-md">
+                    <a href="https://www.youtube.com/live/FpmcjjNT8dw?si=e_j-8lsBqY8uR8tv" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-red-600 text-white font-en text-[10px] font-semibold uppercase shadow-md" data-i18n="btn_watch_interview">
                         <i class="fa-brands fa-youtube"></i> WATCH INTERVIEW ON YOUTUBE
                     </a>
                 </div>
             </div>
 
-            <div class="bg-cardBg rounded-xl p-4 luxury-card space-y-2 text-xs">
-                <span class="text-[9px] font-en uppercase tracking-widest text-goldAccent font-semibold block">FEATURED RELEASE • 2024</span>
-                <h3 class="text-sm font-semibold text-white">WTT / ووت</h3>
-                <p class="text-gray-300 font-light leading-relaxed">
-                    لە ڕێگەی دەنگ و مێلۆدییەکانییەوە، چیرۆکی ناخی خۆی بۆ هەوادارانی دەگێڕێتەوە؛ لە نوێترین بەرهەمی (وتت - ٢٠٢٤) کە وشە بە وشە و نۆت بە نۆتی هەڵقوڵاوی قووڵایی هەست و ناخی خۆیەتی.
+            <!-- Personal Statement / Philosophy -->
+            <div class="bg-cardBg rounded-2xl p-5 luxury-card space-y-3">
+                <div class="flex items-center gap-2 text-goldAccent font-serifHeader text-base font-bold">
+                    <i class="fa-solid fa-quote-right text-xs"></i> <span data-i18n="news_phil_title">فەلسەفە و تێڕوانینی ژیان</span>
+                </div>
+                <p class="text-gray-200 font-light leading-relaxed text-xs sm:text-sm italic" data-i18n="news_phil_text">
+                    “من خۆم بە کەسێکی فێمینیزم و ئازاد دەزانم. من هونەرەمدیم، خێرخوازم و خوێندەوارم، دوو زانکۆم تەواوکردووە، ئەسترۆلۆژیزانم و ئاشقی مێتافیزیکم، بڕوام بە کارما هەیە و یۆگا دەکەم و ئازادم، چونکە بەپێی سوننەتە دروستکراو و بیرە کۆنەکان ناژیم، ژیانم پاک و سادەیە.”
                 </p>
+            </div>
+
+            <!-- New Added News Cards (Single WTT & Am Katet Bash 2020) -->
+            <div class="grid sm:grid-cols-2 gap-4">
+                <!-- Card 1: WTT Single details -->
+                <div class="bg-cardBg rounded-xl p-4 luxury-card space-y-2 text-xs border-goldAccent/30 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[9px] font-en uppercase tracking-widest text-goldAccent font-semibold block mb-1">FEATURED TRACK • 2024</span>
+                        <h3 class="text-sm font-semibold text-white mb-2" data-i18n="news_wtt_title">بەرهەمی (وتت)</h3>
+                        <p class="text-gray-300 font-light leading-relaxed" data-i18n="news_wtt_text">
+                            کۆمسای لە ڕێگەی دەنگ و مێلۆدییەکانییەوە، چیرۆکی ناخی خۆی بۆ هەوادارانی دەگێڕێتەوە؛ لە نوێترین بەرهەمی (وتت) کە وشە بە وشە و نۆت بە نۆتەی هەڵقوڵاوی قووڵایی هەست و ناخی خۆیەتی.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Am Katet Bash Single details -->
+                <div class="bg-cardBg rounded-xl p-4 luxury-card space-y-2 text-xs border-goldAccent/30 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[9px] font-en uppercase tracking-widest text-goldAccent font-semibold block mb-1">MILESTONE TRACK • 2020</span>
+                        <h3 class="text-sm font-semibold text-white mb-2" data-i18n="news_amkt_title">بەرهەمی (ئەمکاتەت باش)</h3>
+                        <p class="text-gray-300 font-light leading-relaxed" data-i18n="news_amkt_text">
+                            بەرهەمی (ئەمکاتەت باش)ـی ساڵی ٢٠٢٠ کە شانازییەکی گەورەیە و بە تێکەڵکردنی زمانی کوردی و ئینگلیزی، بەبێ دوێت گەیشتە ١٩ ملیۆن بینەری ڕاستەقینە.
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <!-- Copyright Note -->
             <div class="bg-cardBg rounded-xl p-4 luxury-card space-y-2 text-xs border-goldAccent/40">
-                <span class="text-[9px] font-en uppercase tracking-widest text-goldAccent font-semibold block">⚠️ COPYRIGHT NOTICE / مافی لەبەرگرتنەوە</span>
-                <h3 class="text-sm font-semibold text-white">کێشەی مافی لەبەرگرتنەوەی ئەلبوومەکان</h3>
-                <p class="text-gray-300 font-light leading-relaxed">
+                <span class="text-[9px] font-en uppercase tracking-widest text-goldAccent font-semibold block" data-i18n="news_copy_sub">⚠️ COPYRIGHT NOTICE / مافی لەبەرگرتنەوە</span>
+                <h3 class="text-sm font-semibold text-white" data-i18n="news_copy_title">کێشەی مافی لەبەرگرتنەوەی ئەلبوومەکان</h3>
+                <p class="text-gray-300 font-light leading-relaxed" data-i18n="news_copy_text">
                     کۆمسای لە ساڵی ٢٠١٤ بە ئەلبۆمی (ماڵی دونیا) دەستی بە کاروانی هونەری کرد کە تێکەڵەیەک بوو لە موزیکی میللی کوردی و موزیکی مۆدێرن و سەرکەوتنێکی باشی بەدەستهێنا، بەڵام هەردوو ئەلبۆمەکە تووشی کۆپیکردن و بڵاوکردنەوەی نایاسایی بوون و هیچ قازانجێکی دارایی لێ وەرنەگرت.
                 </p>
             </div>
@@ -578,13 +688,44 @@
         <section id="view-contact" class="page-view max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
             <div class="text-center space-y-2">
                 <span class="font-en text-[10px] font-semibold tracking-[0.25em] text-goldAccent uppercase">CONTACT & SOCIALS</span>
-                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader">پەیوەندی و تۆڕە کۆمەڵایەتییەکان</h2>
+                <h2 class="text-xl sm:text-2xl font-normal text-white font-serifHeader" data-i18n="contact_main_title">پەیوەندی و تۆڕە کۆمەڵایەتییەکان</h2>
                 <div class="w-10 h-0.5 bg-goldAccent/50 mx-auto mt-2"></div>
             </div>
 
             <div class="bg-cardBg rounded-xl p-4 luxury-card text-center space-y-1.5 text-xs">
                 <span class="text-[9px] font-en uppercase tracking-widest text-gray-400 block font-semibold">MANAGEMENT EMAIL</span>
                 <a href="mailto:komsayagent@gmail.com" class="text-goldAccent font-en font-semibold hover:underline block">komsayagent@gmail.com</a>
+            </div>
+
+            <!-- Management & Ads Cards in Contact Section -->
+            <div class="grid sm:grid-cols-2 gap-4">
+                <!-- Card 1: KMY Production -->
+                <div class="bg-cardBg rounded-xl p-4 luxury-card space-y-3 text-center border-goldAccent/30 flex flex-col justify-between">
+                    <div class="space-y-1">
+                        <span class="text-[9px] font-en uppercase tracking-widest text-goldAccent font-semibold block">MANAGEMENT</span>
+                        <h4 class="text-sm font-bold text-white font-en">KMY Production</h4>
+                        <p class="text-xs text-gray-300">Manager of @komsay</p>
+                    </div>
+                    <div class="pt-2">
+                        <a href="https://www.instagram.com/kmyproduction?igsi=MXhkaWczaXl6Znh6Mw==" target="_blank" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-lg bg-pink-600 text-white font-en text-[10px] font-semibold uppercase shadow-md hover:bg-pink-700 transition-colors" data-i18n="btn_follow_kmy">
+                            <i class="fa-brands fa-instagram"></i> Follow KMY Production
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Advertisements & Collaborations -->
+                <div class="bg-cardBg rounded-xl p-4 luxury-card space-y-3 text-center border-goldAccent/30 flex flex-col justify-between">
+                    <div class="space-y-1">
+                        <span class="text-[9px] font-en uppercase tracking-widest text-goldAccent font-semibold block">ADS & COLLABORATIONS</span>
+                        <h4 class="text-sm font-bold text-white font-en">Komsay Ads</h4>
+                        <p class="text-xs text-gray-300">For advertisement & collaborations</p>
+                    </div>
+                    <div class="pt-2">
+                        <a href="https://www.instagram.com/komsayads?igsi=MWljanpxcGxxcndiNg==" target="_blank" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-lg bg-pink-600 text-white font-en text-[10px] font-semibold uppercase shadow-md hover:bg-pink-700 transition-colors" data-i18n="btn_follow_ads">
+                            <i class="fa-brands fa-instagram"></i> Follow Ads Channel
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -641,34 +782,79 @@
     <script>
         const translations = {
             ckb: {
-                nav_home: "سەرەتا", nav_bio: "ژیاننامە", nav_music: "مۆسیقا", nav_videos: "ڤیدیۆ", nav_gallery: "گەلەری", nav_news: "هەواڵ", nav_contact: "پەیوەندی",
+                nav_home_text: "سەرەتا", nav_bio_text: "ژیاننامە", nav_music_text: "مۆسیقا", nav_videos_text: "ڤیدیۆ", nav_gallery_text: "گەلەری", nav_news_text: "هەواڵ", nav_contact_text: "پەیوەندی",
                 hero_subtitle: "KURDISH SINGER", hero_quote: "پێشەنگی مۆسیقای کوردی و نوێگەری لە جیهانی دەنگ و هونەردا.",
                 btn_listen: "گوێگرتن", btn_bio: "ژیاننامە", explore_title: "✨ دۆزینەوەی کۆمسای ✨",
                 card_music: "مۆسیقا 🎵", card_videos: "ڤیدیۆکان 🎬", card_gallery: "گەلەری 📷", card_bio: "ژیاننامە 🌟", card_news: "هەواڵەکان 📰", card_contact: "پەیوەندی ✉️",
-                bio_subtitle: "OFFICIAL BIOGRAPHY", bio_title: "ژیاننامەی کۆمسای",
-                music_title: "مۆسیقای کۆمسای",
-                gallery_sub: "GALLERY (10 PHOTOS)", gallery_title: "گەلەری وێنەکان", videos_title: "ڤیدیۆ کلیپەکان",
-                news_title: "هەواڵ و تێڕوانینی هونەرمەند", contact_title: "پەیوەندی و تۆڕە کۆمەڵایەتییەکان"
+                bio_subtitle: "OFFICIAL BIOGRAPHY", bio_main_title: "ژیاننامەی کۆمسای", bio_childhood_title: "وێنەی منداڵی و سەرەتای ژیان",
+                bio_p1_title: "سەرەتای ژیان و فێربوونی مۆسیقا", bio_p1_text: "کۆمسای لە شاری سنەی ڕۆژهەڵاتی کوردستان لەدایکبووە. ئەو لە تەمەنی شەش ساڵییەوە دەستی بە فێربوونی مۆسیقا کردووە و لەگەڵ گەورەبوونیدا بەردەوام پەرەی بە بەهرەکانی داوە.",
+                bio_p2_title: "ئامێرەکان و سەرکەوتنی هونەری", bio_p2_text: "کۆمسای ژەنەری ئامێرەکانی کەمانچە و سازە و دواتر ڕێڕەوی هونەریی خۆی بەرەو گۆرانیوتن بردووە. یەکەم دەرکەوتنی فەرمیی لە ساڵی ٢٠١٣ لە بەرنامەی 'خۆشترین دەنگ' بوو. ئەو وەک یەکەم هونەرمەندی کورد لە ستایلی 'ترانس' و 'هاوس' ناسراوە و بە 'شاژنی دەنگی خەمناک' لە کوردستان ناوبانگی دەرکردووە، هەروەها لە ساڵی ٢٠١٥ وەک باشترین خانمە هونەرمەندی کورد لە کوردستان هەڵبژێردراوە.",
+                bio_p3_title: "ڕەچەڵەک", bio_p3_text: "باوکی خەڵکی باشووری کوردستان، دایکی خەڵکی ڕۆژاوای کوردستان، و خۆیشی لەدایکبووی ڕۆژهەڵاتی کوردستانە.",
+                bio_p4_title: "خوێندن و زانست", bio_p4_text: "ئەو ماوەی دوو ساڵ لە بواری تەلارسازی خوێندوویەتی، پاشان سێ ساڵ لە بەڕێوەبردنی کار (Business Administration) و دوو ساڵیش لە وەرگێڕانی ئینگلیزی، و لە ئێستاشدا سەرقاڵی خوێندنی بواری پزیشکییە.",
+                bio_p5_title: "مانای ناوی “کۆمسای”", bio_p5_text: "ناوی کۆمسای واتا ڕێوڕەسمی مێژوویی بە ناوی کۆمسای لە هەورامان کە ساڵانە لە مانگی گوڵاندا بەڕێوە دەچێت و بەردی کۆمسای دەشکێت و ساڵی داهاتوو وەک خۆی لێدێتەوە.",
+                music_main_title: "مۆسیقای کۆمسای", music_latest_label: "✨ LATEST SINGLE • 2024 (دواین بەرهەم)", music_wtt_sub: "دواین بەرهەمی ساڵی ٢٠٢٤",
+                music_singles_label: "SINGLES (SPOTIFY & YOUTUBE)", music_albums_label: "ALBUMS & TRACKS (تراکی ئەلبوومەکان)",
+                track_slaw: "سڵاو بێچ", track_amkatet: "ئەم کاتەت باش", track_sultan: "سوڵتان", track_kapli: "کەپڵی تازە", track_khra: "خڕەی مێخەک", track_dian: "دیان تەڵا",
+                album_1_title: "ئەلبۆمی ماڵی دونیا (2014)", album_2_title: "ئەلبۆمی زرمە (2015)", btn_youtube: "یوتوب",
+                gallery_sub: "GALLERY (10 PHOTOS)", gallery_main_title: "گەلەری وێنەکان",
+                img_1: "وێنەی ١", img_2: "وێنەی ٢", img_3: "وێنەی ٣", img_4: "وێنەی ٤", img_5: "وێنەی ٥", img_6: "وێنەی ٦", img_7: "وێنەی ٧", img_8: "وێنەی ٨", img_9: "وێنەی ٩", img_10: "وێنەی ١٠",
+                videos_main_title: "ڤیدیۆ کلیپەکان", btn_watch_yt: "Watch on YouTube",
+                news_main_title: "هەواڵ و تێڕوانینی هونەرمەند", news_live_title: "چاوپێکەوتنی ڕاستەوخۆ و تایبەتی کۆمسای", btn_watch_interview: "WATCH INTERVIEW ON YOUTUBE",
+                news_phil_title: "فەلسەفە و تێڕوانینی ژیان", news_phil_text: "“من خۆم بە کەسێکی فێمینیزم و ئازاد دەزانم. من هونەرەمدیم، خێرخوازم و خوێندەوارم، دوو زانکۆم تەواوکردووە، ئەسترۆلۆژیزانم و ئاشقی مێتافیزیکم، بڕوام بە کارما هەیە و یۆگا دەکەم و ئازادم، چونکە بەپێی سوننەتە دروستکراو و بیرە کۆنەکان ناژیم، ژیانم پاک و سادەیە.”",
+                news_wtt_title: "بەرهەمی (وتت)", news_wtt_text: "کۆمسای لە ڕێگەی دەنگ و مێلۆدییەکانییەوە، چیرۆکی ناخی خۆی بۆ هەوادارانی دەگێڕێتەوە؛ لە نوێترین بەرهەمی (وتت) کە وشە بە وشە و نۆت بە نۆتەی هەڵقوڵاوی قووڵایی هەست و ناخی خۆیەتی.",
+                news_amkt_title: "بەرهەمی (ئەمکاتەت باش)", news_amkt_text: "بەرهەمی (ئەمکاتەت باش)ـی ساڵی ٢٠٢٠ کە شانازییەکی گەورەیە و بە تێکەڵکردنی زمانی کوردی و ئینگلیزی، بەبێ دوێت گەیشتە ١٩ ملیۆن بینەری ڕاستەقینە.",
+                news_copy_sub: "⚠️ COPYRIGHT NOTICE / مافی لەبەرگرتنەوە", news_copy_title: "کێشەی مافی لەبەرگرتنەوەی ئەلبوومەکان", news_copy_text: "کۆمسای لە ساڵی ٢٠١٤ بە ئەلبۆمی (ماڵی دونیا) دەستی بە کاروانی هونەری کرد کە تێکەڵەیەک بوو لە موزیکی میللی کوردی و موزیکی مۆدێرن و سەرکەوتنێکی باشی بەدەستهێنا، بەڵام هەردوو ئەلبۆمەکە تووشی کۆپیکردن و بڵاوکردنەوەی نایاسایی بوون و هیچ قازانجێکی دارایی لێ وەرنەگرت.",
+                contact_main_title: "پەیوەندی و تۆڕە کۆمەڵایەتییەکان", btn_follow_kmy: "Follow KMY Production", btn_follow_ads: "Follow Ads Channel"
             },
             en: {
-                nav_home: "Home", nav_bio: "Biography", nav_music: "Music", nav_videos: "Videos", nav_gallery: "Gallery", nav_news: "News", nav_contact: "Contact",
+                nav_home_text: "Home", nav_bio_text: "Biography", nav_music_text: "Music", nav_videos_text: "Videos", nav_gallery_text: "Gallery", nav_news_text: "News", nav_contact_text: "Contact",
                 hero_subtitle: "KURDISH SINGER", hero_quote: "Pioneer of Kurdish music and innovation in the world of voice and art.",
                 btn_listen: "LISTEN NOW", btn_bio: "BIOGRAPHY", explore_title: "✨ EXPLORE KOMSAY ✨",
                 card_music: "Music 🎵", card_videos: "Videos 🎬", card_gallery: "Gallery 📷", card_bio: "Biography 🌟", card_news: "News 📰", card_contact: "Contact ✉️",
-                bio_subtitle: "OFFICIAL BIOGRAPHY", bio_title: "KOMSAY BIOGRAPHY",
-                music_title: "KOMSAY MUSIC",
-                gallery_sub: "GALLERY (10 PHOTOS)", gallery_title: "PHOTO GALLERY", videos_title: "MUSIC VIDEOS",
-                news_title: "NEWS & VIEWS", contact_title: "CONTACT & SOCIALS"
+                bio_subtitle: "OFFICIAL BIOGRAPHY", bio_main_title: "KOMSAY BIOGRAPHY", bio_childhood_title: "Childhood Photos & Early Life",
+                bio_p1_title: "Early Life and Music Learning", bio_p1_text: "Komsay was born in Sanandaj, Eastern Kurdistan. She started learning music at the age of six and continued to develop her talents as she grew up.",
+                bio_p2_title: "Instruments and Artistic Success", bio_p2_text: "Komsay plays the kamancheh and saz, later shifting her artistic path towards singing. Her official debut was in 2013 on the program 'Xoshtрин Dang'. She is known as the first Kurdish artist in the 'Trance' and 'House' styles, dubbed the 'Queen of Sad Voice', and was chosen as the best Kurdish female artist in 2015.",
+                bio_p3_title: "Origin & Heritage", bio_p3_text: "Her father is from Southern Kurdistan, her mother from Western Kurdistan, and she was born in Eastern Kurdistan.",
+                bio_p4_title: "Education and Science", bio_p4_text: "She studied architecture for two years, then three years in Business Administration, two years in English Translation, and is currently studying medicine.",
+                bio_p5_title: "Meaning of the Name “Komsay”", bio_p5_text: "The name Komsay refers to the historical ritual in Hawraman held annually in May where the Komsay stone is broken and regenerates by next year.",
+                music_main_title: "KOMSAY MUSIC", music_latest_label: "✨ LATEST SINGLE • 2024", music_wtt_sub: "LATEST SINGLE 2024",
+                music_singles_label: "SINGLES (SPOTIFY & YOUTUBE)", music_albums_label: "ALBUMS & TRACKS",
+                track_slaw: "Slaw Bitch", track_amkatet: "Am Katet Bash", track_sultan: "Sultan", track_kapli: "Kapli Taza", track_khra: "Khray Mekhak", track_dian: "Dian Tala",
+                album_1_title: "Malish Donya Album (2014)", album_2_title: "Zirma Album (2015)", btn_youtube: "YouTube",
+                gallery_sub: "GALLERY (10 PHOTOS)", gallery_main_title: "PHOTO GALLERY",
+                img_1: "Photo 1", img_2: "Photo 2", img_3: "Photo 3", img_4: "Photo 4", img_5: "Photo 5", img_6: "Photo 6", img_7: "Photo 7", img_8: "Photo 8", img_9: "Photo 9", img_10: "Photo 10",
+                videos_main_title: "MUSIC VIDEOS", btn_watch_yt: "Watch on YouTube",
+                news_main_title: "NEWS & VIEWS", news_live_title: "Live Special Interview with Komsay", btn_watch_interview: "WATCH INTERVIEW ON YOUTUBE",
+                news_phil_title: "Philosophy & Outlook on Life", news_phil_text: "“I consider myself a feminist and free person. I am an artist, philanthropist, and educated with two degrees, an astrologer and lover of metaphysics, I believe in karma, do yoga and am free because I don't live by man-made traditions and old ideas; my life is pure and simple.”",
+                news_wtt_title: "Single (WTT)", news_wtt_text: "Through her voice and melodies, Komsay tells the story of her inner soul to fans in her latest release (WTT), written and composed directly from her deepest feelings.",
+                news_amkt_title: "Single (Am Katet Bash)", news_amkt_text: "The 2020 hit (Am Katet Bash) is a great pride, combining Kurdish and English languages without a duet, reaching 19 million true views.",
+                news_copy_sub: "⚠️ COPYRIGHT NOTICE", news_copy_title: "Album Copyright Issues", news_copy_text: "Komsay started her artistic journey in 2014 with the album (Malish Donya), a mix of Kurdish folk and modern music which achieved great success, but both albums suffered from illegal piracy and she received no financial profit.",
+                contact_main_title: "CONTACT & SOCIALS", btn_follow_kmy: "Follow KMY Production", btn_follow_ads: "Follow Ads Channel"
             },
             fa: {
-                nav_home: "خانه", nav_bio: "بیوگرافی", nav_music: "موسیقی", nav_videos: "ویدیوها", nav_gallery: "گالری", nav_news: "اخبار", nav_contact: "تماس",
+                nav_home_text: "خانه", nav_bio_text: "بیوگرافی", nav_music_text: "موسیقی", nav_videos_text: "ویدیوها", nav_gallery_text: "گالری", nav_news_text: "اخبار", nav_contact_text: "تماس",
                 hero_subtitle: "KURDISH SINGER", hero_quote: "پیشاهنگ موسیقی کردی و نوآوری در دنیای صدا و هنر.",
                 btn_listen: "LISTEN NOW", btn_bio: "BIOGRAPHY", explore_title: "✨ کاوش در آثار کومسای ✨",
                 card_music: "Music 🎵", card_videos: "Videos 🎬", card_gallery: "Gallery 📷", card_bio: "Biography 🌟", card_news: "News 📰", card_contact: "Contact ✉️",
-                bio_subtitle: "OFFICIAL BIOGRAPHY", bio_title: "بیوگرافی کومسای",
-                music_title: "موسیقی کومسای",
-                gallery_sub: "GALLERY (10 PHOTOS)", gallery_title: "گالری تصاویر", videos_title: "ویدیو کلیپ‌ها",
-                news_title: "اخبار و دیدگاه‌ها", contact_title: "ارتباط و شبکه‌های اجتماعی"
+                bio_subtitle: "OFFICIAL BIOGRAPHY", bio_main_title: "بیوگرافی کومسای", bio_childhood_title: "تصاویر کودکی و آغاز زندگی",
+                bio_p1_title: "آغاز زندگی و یادگیری موسیقی", bio_p1_text: "کومسای در سنندج، شرق کردستان به دنیا آمد. او از شش سالگی یادگیری موسیقی را آغاز کرد و با بزرگ شدن همواره به پرورش استعدادهایش ادامه داد.",
+                bio_p2_title: "سازها و موفقیت هنری", bio_p2_text: "کومسای نوازنده سازهای کمانچه و ساز است و بعدها مسیر هنری خود را به سمت خوانندگی سوق داد. اولین حضور رسمی او در سال ۲۰۱۳ در برنامه 'خوشترین دەنگ' بود. او به عنوان اولین هنرمند کرد در سبک‌های 'ترنس' و 'هاوس' شناخته می‌شود و به 'ملکه صدای غمگین' شهرت دارد و در سال ۲۰۱۵ به عنوان بهترین خواننده زن کرد انتخاب شد.",
+                bio_p3_title: "اصالت و تبار", bio_p3_text: "پدرش اهل کردستان جنوبی، مادرش اهل کردستان غربی و خودش متولد کردستان شرقی است.",
+                bio_p4_title: "تحصیلات و علم", bio_p4_text: "او دو سال در رشته معماری تحصیل کرد، سپس سه سال مدیریت بازرگانی و دو سال مترجمی زبان انگلیسی خواند و در حال حاضر در رشته پزشکی مشغول به تحصیل است.",
+                bio_p5_title: "معنای نام “کومسای”", bio_p5_text: "نام کومسای به آیین تاریخی به نام کومسای در اورامان اشاره دارد که سالانه در ماه اردیبهشت برگزار می‌شود و سنگ کومسای شکسته شده و سال بعد به شکل اول درمی‌آید.",
+                music_main_title: "موسیقی کومسای", music_latest_label: "✨ LATEST SINGLE • 2024 (آخرین اثر)", music_wtt_sub: "آخرین اثر سال ۲۰۲۴",
+                music_singles_label: "SINGLES (SPOTIFY & YOUTUBE)", music_albums_label: "آلبوم‌ها و تراک‌ها",
+                track_slaw: "سلاو بیچ", track_amkatet: "ام کاتت باش", track_sultan: "سلطان", track_kapli: "کپلی تازه", track_khra: "خره میخک", track_dian: "دیان طلا",
+                album_1_title: "آلبوم مالی دونیا (۲۰۱۴)", album_2_title: "آلبوم زرمه (۲۰۱۵)", btn_youtube: "یوتیوب",
+                gallery_sub: "GALLERY (10 PHOTOS)", gallery_main_title: "گالری تصاویر",
+                img_1: "تصویر ۱", img_2: "تصویر ۲", img_3: "تصویر ۳", img_4: "تصویر ۴", img_5: "تصویر ۵", img_6: "تصویر ۶", img_7: "تصویر ۷", img_8: "تصویر ۸", img_9: "تصویر ۹", img_10: "تصویر ۱۰",
+                videos_main_title: "ویدیو کلیپ‌ها", btn_watch_yt: "تماشا در یوتیوب",
+                news_main_title: "اخبار و دیدگاه‌ها", news_live_title: "مصاحبه زنده و اختصاصی با کومسای", btn_watch_interview: "تماشای مصاحبه در یوتیوب",
+                news_phil_title: "فلسفه و دیدگاه زندگی", news_phil_text: "“من خودم را فردی فمینیست و آزاد می‌دانم. من هنرمندم، نیکوکار و تحصیل‌کرده هستم، دو دانشگاه را تمام کرده‌ام، ستاره‌شناس و عاشق متافیزیک هستم، به کارما باور دارم و یوگا می‌کنم و آزادم، زیرا بر اساس سنت‌های ساختگی و افکار کهنه زندگی نمی‌کنم، زندگی من پاک و ساده است.”",
+                news_wtt_title: "تراک (وتت)", news_wtt_text: "کومسای از طریق صدا و ملودی‌هایش، داستان درونی خود را برای طرفداران روایت می‌کند؛ در جدیدترین اثر خود (وتت) که کلمه به کلمه و نوت به نوت برخاسته از ژرفای احساس و درون اوست.",
+                news_amkt_title: "تراک (ام کاتت باش)", news_amkt_text: "اثر (ام کاتت باش) محصول سال ۲۰۲۰ افتخاری بزرگ است که با تلفیق زبان کردی و انگلیسی، بدون دوئت به ۱۹ میلیون بیننده واقعی رسید.",
+                news_copy_sub: "⚠️ COPYRIGHT NOTICE / حق نشر", news_copy_title: "مشکل کپی‌رایت آلبوم‌ها", news_copy_text: "کومسای در سال ۲۰۱۴ با آلبوم (مالی دونیا) کار هنری خود را آغاز کرد که ترکیبی از موسیقی محلی کردی و مدرن بود و موفقیت خوبی به دست آورد، اما هر دو آلبوم دچار کپی‌برداری غیرقانونی شدند و سود مالی از آن دریافت نکرد.",
+                contact_main_title: "ارتباط و شبکه‌های اجتماعی", btn_follow_kmy: "Follow KMY Production", btn_follow_ads: "Follow Ads Channel"
             }
         };
 
