@@ -201,8 +201,7 @@
     <!-- WELCOME MODAL / LANGUAGE SELECTOR POPUP -->
     <div id="welcomeModal" class="fixed inset-0 bg-black/95 backdrop-blur-md z-[3000] flex justify-center items-center p-6 transition-opacity duration-300">
         <div class="luxury-card rounded-3xl p-8 max-w-md w-full text-center space-y-6 shadow-2xl border border-goldAccent/40">
-            <div class="w-24 h-24 mx-auto rounded-full overflow-hidden bg-cardBg border-2 border-goldAccent flex items-center justify-center shadow-lg">
-                <!-- LOGO Image (with fallback to generated text avatar) -->
+            <div class="w-20 h-20 mx-auto rounded-full overflow-hidden bg-cardBg border-2 border-goldAccent flex items-center justify-center shadow-lg">
                 <img src="assets/images/logo.png" alt="KOMSAY Logo" class="w-full h-full object-cover" onError="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Komsay&background=13110f&color=d4af37&size=200&bold=true';">
             </div>
             <div class="space-y-1">
@@ -240,7 +239,6 @@
         <div class="island-nav rounded-full px-4 py-2 flex items-center justify-between gap-3">
             <a href="#home" onclick="showPage('home', event)" class="flex items-center gap-2 flex-shrink-0">
                 <div class="w-8 h-8 rounded-full overflow-hidden border border-goldAccent/50 bg-cardBg flex items-center justify-center shadow-inner">
-                    <!-- LOGO in Navbar -->
                     <img src="assets/images/logo.png" alt="Logo" class="w-full h-full object-cover" onError="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Komsay&background=13110f&color=d4af37&size=64&bold=true';">
                 </div>
                 <span class="font-serifHeader text-sm font-bold tracking-[0.15em] text-white hidden sm:inline">KOMSAY</span>
@@ -257,7 +255,7 @@
             </nav>
 
             <div class="flex items-center gap-2 flex-shrink-0">
-                <!-- Quick Language Switcher Button -->
+                <!-- Quick Language Switcher Button in Navbar -->
                 <button onclick="openWelcomeModal()" class="bg-cardBg border border-goldAccent/40 hover:bg-goldAccent hover:text-black text-goldAccent px-2.5 py-1.5 rounded-md text-[10px] font-bold transition-all cursor-pointer flex items-center gap-1" title="گۆڕینی زمان">
                     <i class="fa-solid fa-globe text-[9px]"></i> <span>LANG</span>
                 </button>
@@ -288,13 +286,10 @@
                 </div>
             </div>
 
-            <!-- Landscape Hero Image with Fallback and Click-to-Zoom -->
+            <!-- Landscape Hero Image with Glow & Click-to-Zoom (No hint text) -->
             <div class="w-full aspect-[16/9] rounded-2xl overflow-hidden hero-glow-frame relative cursor-pointer group" onclick="openLightbox(this.querySelector('img').src)">
                 <img id="heroImage" src="assets/images/hero.jpg" alt="KOMSAY" class="w-full h-full object-cover filter contrast-110 group-hover:scale-105 transition-transform duration-700" onError="this.onerror=null; this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800';">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                <div class="absolute bottom-3 left-4 text-[11px] text-goldAccent bg-black/70 px-3 py-1 rounded-full border border-goldAccent/30 backdrop-blur-md">
-                    <i class="fa-solid fa-expand"></i> <span data-i18n="zoom_hint">کلیک بۆ گەورەکردن</span>
-                </div>
             </div>
 
             <!-- Personal Identity Summary Table -->
@@ -366,7 +361,7 @@
             </div>
 
             <div class="space-y-4 text-xs sm:text-sm leading-relaxed">
-                <!-- 3 Childhood Photos Grid with Fallbacks -->
+                <!-- 3 Childhood Photos Grid inside Biography -->
                 <div class="bg-cardBg rounded-2xl p-5 luxury-card space-y-3">
                     <div class="flex items-center gap-2 text-goldAccent font-serifHeader text-base font-bold">
                         <i class="fa-solid fa-camera-retro text-xs"></i> <span data-i18n="bio_childhood_title">وێنەی منداڵی و سەرەتای ژیان</span>
@@ -652,43 +647,33 @@
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
                 <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('assets/images/gallery-1.jpg')">
                     <img src="assets/images/gallery-1.jpg" alt="Gallery 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.onerror=null; this.src='https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=300';">
-                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_1">وێنەی ١</span>
                 </div>
                 <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('assets/images/gallery-2.jpg')">
                     <img src="assets/images/gallery-2.jpg" alt="Gallery 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.onerror=null; this.src='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=300';">
-                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_2">وێنەی ٢</span>
                 </div>
                 <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('assets/images/gallery-3.jpg')">
                     <img src="assets/images/gallery-3.jpg" alt="Gallery 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.onerror=null; this.src='https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=300';">
-                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_3">وێنەی ٣</span>
                 </div>
                 <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('assets/images/gallery-4.jpg')">
                     <img src="assets/images/gallery-4.jpg" alt="Gallery 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.onerror=null; this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=300';">
-                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_4">وێنەی ٤</span>
                 </div>
                 <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('assets/images/gallery-5.jpg')">
                     <img src="assets/images/gallery-5.jpg" alt="Gallery 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.onerror=null; this.src='https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=300';">
-                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_5">وێنەی ٥</span>
                 </div>
                 <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('assets/images/gallery-6.jpg')">
                     <img src="assets/images/gallery-6.jpg" alt="Gallery 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.onerror=null; this.src='https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=300';">
-                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_6">وێنەی ٦</span>
                 </div>
                 <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('assets/images/gallery-7.jpg')">
                     <img src="assets/images/gallery-7.jpg" alt="Gallery 7" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.onerror=null; this.src='https://images.unsplash.com/photo-1526478806334-5fd488fcaabc?q=80&w=300';">
-                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_7">وێنەی ٧</span>
                 </div>
                 <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('assets/images/gallery-8.jpg')">
                     <img src="assets/images/gallery-8.jpg" alt="Gallery 8" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.onerror=null; this.src='https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=300';">
-                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_8">وێنەی ٨</span>
                 </div>
                 <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('assets/images/gallery-9.jpg')">
                     <img src="assets/images/gallery-9.jpg" alt="Gallery 9" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.onerror=null; this.src='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=300';">
-                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_9">وێنەی ٩</span>
                 </div>
                 <div class="aspect-square bg-cardBg rounded-xl overflow-hidden luxury-card flex items-center justify-center text-xs text-gray-400 cursor-pointer hover:border-goldAccent transition-all relative group" onclick="openLightbox('assets/images/gallery-10.jpg')">
                     <img src="assets/images/gallery-10.jpg" alt="Gallery 10" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.onerror=null; this.src='https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=300';">
-                    <span class="absolute bottom-2 bg-black/60 px-2 py-0.5 rounded text-[10px] text-goldAccent" data-i18n="img_10">وێنەی ١٠</span>
                 </div>
             </div>
         </section>
@@ -783,7 +768,7 @@
             </div>
 
             <!-- Personal Statement / Philosophy -->
-            <div class="bg-cardBg rounded-2xl p-5 luxury-card space-y-3">
+            <div class="bg-cardBg rounded-xl p-5 luxury-card space-y-3">
                 <div class="flex items-center gap-2 text-goldAccent font-serifHeader text-base font-bold">
                     <i class="fa-solid fa-quote-right text-xs"></i> <span data-i18n="news_phil_title">فەلسەفە و تێڕوانینی ژیان</span>
                 </div>
@@ -939,6 +924,24 @@
         <p class="text-[9px] font-en text-gray-400 tracking-wider">&copy; 2026 KOMSAY. ALL RIGHTS RESERVED.</p>
     </footer>
 
+    <!-- WELCOME MODAL / LANGUAGE SELECTOR POPUP -->
+    <div id="welcomeModal" class="hidden-modal" style="opacity: 0; pointer-events: none;">
+        <div class="luxury-card rounded-3xl p-8 max-w-md w-full text-center space-y-6 shadow-2xl border border-goldAccent/40">
+            <div class="w-20 h-20 mx-auto rounded-full overflow-hidden bg-cardBg border-2 border-goldAccent flex items-center justify-center shadow-lg">
+                <img src="assets/images/logo.png" alt="KOMSAY Logo" class="w-full h-full object-cover" onError="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Komsay&background=13110f&color=d4af37&size=200&bold=true';">
+            </div>
+            <div class="space-y-1">
+                <h2 class="font-serifHeader text-2xl font-bold tracking-wider text-white">KOMSAY PORTAL</h2>
+                <p class="text-xs text-gray-400">تکایە زمانەکەت هەڵبژێرە • Please select your language</p>
+            </div>
+            <div class="grid grid-cols-3 gap-3 pt-2">
+                <button onclick="setLanguage('ckb'); closeWelcomeModal();" class="py-2.5 px-3 rounded-xl bg-cardBg border border-goldAccent/30 text-goldAccent text-xs font-bold hover:bg-goldAccent hover:text-black transition-all">کوردی</button>
+                <button onclick="setLanguage('en'); closeWelcomeModal();" class="py-2.5 px-3 rounded-xl bg-cardBg border border-goldAccent/30 text-goldAccent text-xs font-bold hover:bg-goldAccent hover:text-black transition-all">English</button>
+                <button onclick="setLanguage('fa'); closeWelcomeModal();" class="py-2.5 px-3 rounded-xl bg-cardBg border border-goldAccent/30 text-goldAccent text-xs font-bold hover:bg-goldAccent hover:text-black transition-all">فارسی</button>
+            </div>
+        </div>
+    </div>
+
     <!-- JAVASCRIPT LOGIC -->
     <script>
         const translations = {
@@ -1019,10 +1022,10 @@
                 t_kafr3: "کافر ۳", t_mastam: "مستم", t_malish: "مالی دونیا", t_bakhtawar: "بختاور", t_malihafiz: "ملی خدا حافظ", t_bebhdang: "بیبدنگ", t_bawah: "باوەش",
                 album_2_title: "آلبوم زرمه (۲۰۱۵)",
                 t_kafr4: "کافر ۴", t_baran: "باران", t_shanbeshan: "شان به شان", t_zirma: "زرمه", t_nabatan: "نباتن شیرین", t_laanat: "لعنت له تو", t_mashkena: "دلم مشکینه", t_larzana: "لرزانه", t_bakhtirash: "بختی رش", t_shirin: "شیرین و شیرین", t_khodat: "خدات له گەڵ بێ", t_hanasa: "هناسه ی سرد", t_folklore: "فولکلور (ریمیکس)",
-                btn_youtube: "یوتیوب", gallery_sub: "GALLERY (10 PHOTOS)", gallery_main_title: "گالری تصاویر",
+                btn_youtube: "یوتیوب", gallery_sub: "GALLERY (10 PHOTOS)", gallery_main_title: "گەلەری وێنەکان",
                 img_1: "تصویر ۱", img_2: "تصویر ۲", img_3: "تصویر ۳", img_4: "تصویر ۴", img_5: "تصویر ۵", img_6: "تصویر ۶", img_7: "تصویر ۷", img_8: "تصویر ۸", img_9: "تصویر ۹", img_10: "تصویر ۱۰",
-                videos_main_title: "ویدیو کلیپ‌ها", btn_watch_yt: "تماشا در یوتیوب",
-                news_main_title: "اخبار و دیدگاه‌ها", news_live_title: "مصاحبه زنده و اختصاصی با کومسای", btn_watch_interview: "تماشای مصاحبه در یوتیوب",
+                videos_main_title: "ڤیدیۆ کلیپەکان", btn_watch_yt: "تماشا در یوتیوب",
+                news_main_title: "هەواڵ و تێڕوانینی هونەرمەند", news_live_title: "مصاحبه زنده و اختصاصی با کومسای", btn_watch_interview: "تماشای مصاحبه در یوتیوب",
                 news_phil_title: "فلسفه و دیدگاه زندگی", news_phil_short: "“من خودم را فردی فمینیست و آزاد می‌دانم. من هنرمندم، نیکوکار...”", news_phil_text: "“من خودم را فردی فمینیست و آزاد می‌دانم. من هنرمندم، نیکوکار و تحصیل‌کرده هستم، دو دانشگاه را تمام کرده‌ام، ستاره‌شناس و عاشق متافیزیک هستم، به کارما باور دارم و یوگا می‌کنم و آزادم، زیرا بر اساس سنت‌های ساختگی و افکار کهنه زندگی نمی‌کنم، زندگی من پاک و ساده است.”",
                 news_wtt_title: "تراک (وتت)", news_wtt_short: "کومسای از طریق صدا و ملودی‌هایش، داستان درونی خود را برای طرفداران...", news_wtt_text: "کومسای از طریق صدا و ملودی‌هایش، داستان درونی خود را برای طرفداران روایت می‌کند؛ در جدیدترین اثر خود (وتت) که کلمه به کلمه و نوت به نوت برخاسته از ژرفای احساس و درون اوست.",
                 news_amkt_title: "تراک (ام کاتت باش)", news_amkt_short: "اثر (ام کاتت باش) محصول سال ۲۰۲۰ افتخاری بزرگ است...", news_amkt_text: "اثر (ام کاتت باش) محصول سال ۲۰۲۰ افتخاری بزرگ است که با تلفیق زبان کردی و انگلیسی، بدون دوئت به ۱۹ میلیون بیننده واقعی رسید.",
@@ -1124,10 +1127,8 @@
             const img = document.getElementById('lightboxImg');
             const downloadBtn = document.getElementById('lightboxDownloadBtn');
             
-            // Extract original image URL if it's the fallback URL
             let finalSrc = imgSrc;
             if (imgSrc.includes('unsplash.com')) {
-               // Use the high res fallback for zoom
                finalSrc = imgSrc.replace('&w=300', '&w=1200').replace('&w=600', '&w=1200').replace('&w=800', '&w=1200');
             }
             
@@ -1144,7 +1145,6 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            // Apply Kurdish by default initially to ensure everything translates correctly on load
             setLanguage('ckb');
 
             const hash = window.location.hash.replace('#', '');
@@ -1154,7 +1154,6 @@
                 showPage('home');
             }
 
-            // Show welcome modal initially
             const modal = document.getElementById('welcomeModal');
             if (modal) {
                 modal.classList.remove('hidden-modal');
@@ -1186,5 +1185,4 @@
     </script>
 </body>
 </html>
-
 
